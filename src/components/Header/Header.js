@@ -27,7 +27,7 @@ function Header({ handleLoginClick, handleSignUpClick }) {
           </p>
         </Link>
         {isLoggedIn ? (
-          <Link className='header__link header__link-cart' to='/profile'>
+          <Link className='header__link header__link-cart' to='/cart'>
             {isAdmin ? (
               <p className='header__text header__text-admin'>Admin Profile</p>
             ) : (

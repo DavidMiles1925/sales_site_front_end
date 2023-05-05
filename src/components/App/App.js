@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import AboutUs from "../AboutUs/AboutUs";
 import ProductsPage from "../ProductsPage/ProductsPage";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -14,7 +15,7 @@ import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
 import { ValidationContext } from "../../contexts/ValidationContext";
 
 const App = () => {
-  const [isDevMode, setIsDevMode] = useState(true);
+  const [isDevMode, setIsDevMode] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -108,9 +109,20 @@ const App = () => {
           handleLoginClick={handleLoginClick}
           handleSignUpClick={handleSignUpClick}
         />
+        {isDevMode ? (
+          <DeveloperPanel
+            handleToggleLogin={handleToggleLogin}
+            handleToggleAdmin={handleToggleAdmin}
+          />
+        ) : (
+          <></>
+        )}
         <Switch>
           <Route path='/about'>
             <AboutUs />
+          </Route>
+          <Route path='/cart'>
+            <ShoppingCart />
           </Route>
           <Route path='/main'>
             <Main />
@@ -123,14 +135,6 @@ const App = () => {
           </Route>
         </Switch>
         <Footer />
-        {isDevMode ? (
-          <DeveloperPanel
-            handleToggleLogin={handleToggleLogin}
-            handleToggleAdmin={handleToggleAdmin}
-          />
-        ) : (
-          <></>
-        )}
         {activeModal === "login" && (
           <ValidationContext.Provider
             value={{

@@ -1,7 +1,12 @@
 .dev-panel {
-  width: 95%;
+  font-size: 12px;
+  width: 50%;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
+  border: solid 2px black;
+  border-style: dashed;
+  padding: 8px;
 }
 
 .dev-panel__status-container {

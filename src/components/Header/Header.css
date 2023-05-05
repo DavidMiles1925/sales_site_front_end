@@ -1,0 +1,92 @@
+.logo {
+  height: 100px;
+  width: 100px;
+}
+
+.header {
+  max-width: 1440px;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__info {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.header__title {
+  margin: 0 0 0 8px;
+  font-size: 36px;
+}
+
+.header__text {
+  margin: 0 8px 0 8px;
+}
+
+.header__text-admin {
+  margin: 0 8px 10px 8px;
+}
+
+.header__button {
+  margin: 0 8px 20px 8px;
+  border: solid 2 px black;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+  font-family: "Bruno-Ace";
+  font-size: 20px;
+  transition: 0.1s;
+}
+
+.header__button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  opacity: 0.6;
+}
+
+.header__link {
+  margin: 0 0 20px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  transition: 0.1s;
+}
+
+.header__link:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.header__link-main {
+  margin: 0 auto 0 0;
+}
+
+.header__link-cart {
+  margin: 0 0 10px 12px;
+}
+
+.header__cart {
+  height: 46px;
+  width: 46px;
+}
+
+@media screen and (max-width: 900px) {
+  .header__info {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__link-main {
+    margin: 0 0 10px 8px;
+  }
+}

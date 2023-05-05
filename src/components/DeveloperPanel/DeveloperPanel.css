@@ -1,0 +1,20 @@
+.dev-panel {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dev-panel__status-container {
+  max-height: 36px;
+  margin: 0 0 8px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dev-panel__button {
+  margin: 0 8px 0 0;
+  max-height: 36px;
+  min-height: 24px;
+}

@@ -1,0 +1,157 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__window {
+  padding: 28px;
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Cabinet-Grotesk";
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.modal__fieldset {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__title {
+  font-family: "Bruno-Ace";
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.modal__close {
+  height: 16px;
+  width: 16px;
+  background-size: 16px;
+  background-image: url(../../images/close-button.png);
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 23px;
+  right: 23px;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+}
+
+.modal__label {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-family: "Bruno-Ace";
+}
+
+.modal__label_type_radio {
+  margin-top: 0;
+}
+
+.modal__input {
+  font-size: 16px;
+  line-height: 20px;
+  width: 440px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.modal__input_type_error {
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
+}
+
+.modal__input_type_radio {
+  margin: 0 8px 0 0;
+  width: auto;
+}
+
+.modal__radio-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.modal__submit {
+  width: 124px;
+  height: 36px;
+  padding: 8px, 16px, 8px, 16px;
+  margin: 24px 0px;
+  font-family: "Bruno-Ace";
+}
+
+.modal__buton-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal__submit {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+}
+
+.modal__submit:disabled {
+  background-color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.modal__button-modifier {
+  background-color: transparent;
+  border: none;
+  font-family: "Bruno-Ace";
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  margin: 0 8px 0;
+}
+
+.modal__button-modifier:hover {
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(255, 0, 0, 1);
+  margin: 8px 0 0 0;
+}
+
+.modal__optional {
+  font-size: 10px;
+}
+
+.modal__format {
+  margin: 2px 0 0 0;
+  font-family: "Bruno-Ace";
+}
+
+@media screen and (max-width: 560px) {
+  .modal__input {
+    width: 250px;
+  }
+
+  .modal__input_type_radio {
+    margin-bottom: 12px;
+    width: auto;
+  }
+}

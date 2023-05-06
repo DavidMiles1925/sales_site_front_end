@@ -20,15 +20,20 @@ function ProductCard({ card, selectCard, handleCartClick }) {
   return (
     <li
       className='card'
-      style={{ backgroundImage: `url(${card.image})` }}
       onClick={() => {
         selectCard(card);
       }}
     >
-      <img src='./images/transmogrofier.jpg' alt='Product' />
+      <div className='card__image-container'>
+        <img
+          className='card__image'
+          src='./images/transmogrofier.jpg'
+          alt='Product'
+        />
+      </div>
       <div className='card__header'>
-        <p className='card__name'>{card.name}</p>
-        <p className='card__price'>{`$${card.price}`}</p>
+        <p className='card__text card__name'>{card.name}</p>
+        <p className='card__text card__price'>{`$${card.price}`}</p>
         {isLoggedIn && (
           <button
             className={setCartClassNames()}

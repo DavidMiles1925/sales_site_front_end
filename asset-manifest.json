@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/sales_site_front_end/static/css/main.ba42e831.css",
-    "main.js": "/sales_site_front_end/static/js/main.62c8f48a.js",
+    "main.js": "/sales_site_front_end/static/js/main.9b7cb918.js",
     "static/js/787.c9748194.chunk.js": "/sales_site_front_end/static/js/787.c9748194.chunk.js",
     "static/media/Sigmar-Regular.ttf": "/sales_site_front_end/static/media/Sigmar-Regular.daeeaca2f7490cb1c50c.ttf",
     "static/media/BrunoAce-Regular.ttf": "/sales_site_front_end/static/media/BrunoAce-Regular.57d90f1b7b321c6768d4.ttf",
@@ -9,11 +9,11 @@
     "static/media/logo.png": "/sales_site_front_end/static/media/logo.482340219713f73f2c7d.png",
     "index.html": "/sales_site_front_end/index.html",
     "main.ba42e831.css.map": "/sales_site_front_end/static/css/main.ba42e831.css.map",
-    "main.62c8f48a.js.map": "/sales_site_front_end/static/js/main.62c8f48a.js.map",
+    "main.9b7cb918.js.map": "/sales_site_front_end/static/js/main.9b7cb918.js.map",
     "787.c9748194.chunk.js.map": "/sales_site_front_end/static/js/787.c9748194.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba42e831.css",
-    "static/js/main.62c8f48a.js"
+    "static/js/main.9b7cb918.js"
   ]
 }

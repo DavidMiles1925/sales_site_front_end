@@ -23,7 +23,7 @@ const database = {
       description:
         "We found this under the kitchen sink. Whatever this thing is, it seems really useful. So far we've used it empty the litter box, clean the gutters, and remove the tops from our strawberries.",
       price: "999.99",
-      image: "../images/transmogrofier.jpg",
+      image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     },
     {
@@ -33,6 +33,15 @@ const database = {
         "We found this under the kitchen sink. Whatever this thing is, it seems really useful. So far we've used it empty the litter box, clean the gutters, and remove the tops from our strawberries.",
       price: "999.99",
       image: "../images/transmogrofier.jpg",
+      link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
+    {
+      _id: "003",
+      name: "Transmogrofier",
+      description:
+        "We found this under the kitchen sink. Whatever this thing is, it seems really useful. So far we've used it empty the litter box, clean the gutters, and remove the tops from our strawberries.",
+      price: "999.99",
+      image: "../../images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     },
   ],

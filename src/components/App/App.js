@@ -2,6 +2,9 @@
 import { Route, Switch, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+// ********** API **********
+import { database } from "../../utils/mockServer";
+
 // ********** Contexts **********
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { ValidationContext } from "../../contexts/ValidationContext";
@@ -13,18 +16,23 @@ import AboutUs from "../AboutUs/AboutUs";
 import ProductsPage from "../ProductsPage/ProductsPage";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import Footer from "../Footer/Footer";
+import StillBuilding from "../StillBuilding/StillBuilding";
+import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
+
+// ********** Modals **********
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
-import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
 
 // ********** Styles **********
 import "../../fonts/fonts.css";
 import "./App.css";
-import StillBuilding from "../StillBuilding/StillBuilding";
 
 const App = () => {
   // ********** Developer Tools **********
   const [isDevMode, setIsDevMode] = useState(false);
+
+  // ********** Server **********
+  const [productList, setProductList] = useState([]);
 
   // ********** User Context **********
   const [currentUser, setCurrentUser] = useState({});
@@ -48,6 +56,8 @@ const App = () => {
     setActiveModal("signup");
   }
 
+  function selectCard(card) {}
+
   // ********** Submission Handlers **********
   function handleLoginSubmit() {
     history.push("/building");
@@ -66,6 +76,8 @@ const App = () => {
   function handleToggleAdmin() {
     setIsAdmin(!isAdmin);
   }
+
+  function handleCartClick() {}
 
   // ********** Modal Tools **********
   function closeModal() {
@@ -102,6 +114,10 @@ const App = () => {
   }*/
 
   // ********** Listeners **********
+  useEffect(() => {
+    setProductList(database.products);
+  }, []);
+
   useEffect(() => {
     setCurrentUser({ email: "test@test.com", name: "TestUser" });
   }, []);
@@ -148,7 +164,11 @@ const App = () => {
             <Main />
           </Route>
           <Route path='/products'>
-            <ProductsPage />
+            <ProductsPage
+              productList={productList}
+              selectCard={selectCard}
+              handleCartClick={handleCartClick}
+            />
           </Route>
           <Route path='/'>
             <Main />

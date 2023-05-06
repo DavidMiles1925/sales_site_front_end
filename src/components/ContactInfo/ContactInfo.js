@@ -4,7 +4,7 @@ import "./ContactInfo.css";
 function ContactInfo() {
   return (
     <div className='contact'>
-      <h3 className='contact__title'>Contact</h3>
+      <h3 className='contact__title'>Contact Us</h3>
       <div className='contact__wrapper'>
         <div className='contact__header-wrapper'>
           <p className='contact__header contact__header_type_address'>

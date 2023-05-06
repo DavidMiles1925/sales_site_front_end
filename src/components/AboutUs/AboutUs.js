@@ -18,15 +18,14 @@ function AboutUs() {
           <h3 className='about-us__section-title'>Where we came from:</h3>
           <p className='about-us__section-text'>
             On day we thought, "Hmm, it would be cool to sell something online,
-            but what could we sell? Oh well, I'll just build a website and then
+            but what could we sell? Oh well, let's just build a website and then
             figure it out."
           </p>
         </div>
         <div className='about-us__section-container'>
           <h3 className='about-us__section-title'>Our pledge to you:</h3>
           <p className='about-us__section-text'>
-            Someday we will figure out what the heck we're going to do and go do
-            it.
+            Someday we will figure out what the heck we're going to do!
           </p>
         </div>
       </div>

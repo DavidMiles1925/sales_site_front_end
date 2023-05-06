@@ -6,7 +6,7 @@ import "./Header.css";
 import logo from "../../images/logo.png";
 import cartIcon from "../../images/cart.png";
 
-function Header({ handleLoginClick, handleSignUpClick }) {
+function Header({ selectLogin, selectSignUp }) {
   const { isLoggedIn, isAdmin } = useContext(CurrentUserContext);
 
   return (
@@ -27,29 +27,29 @@ function Header({ handleLoginClick, handleSignUpClick }) {
           </p>
         </Link>
         {isLoggedIn ? (
-          <Link className='header__link header__link-cart' to='/cart'>
-            {isAdmin ? (
+          isAdmin ? (
+            <Link className='header__link header__link-cart' to='/building'>
               <p className='header__text header__text-admin'>Admin Profile</p>
-            ) : (
-              <>
-                <p className='header__text'>Wishlist</p>
-                <img className='header__cart' src={cartIcon} alt='Cart'></img>
-              </>
-            )}
-          </Link>
+            </Link>
+          ) : (
+            <Link className='header__link header__link-cart' to='/building'>
+              <p className='header__text'>Wishlist</p>
+              <img className='header__cart' src={cartIcon} alt='Cart'></img>
+            </Link>
+          )
         ) : (
           <>
             <button
               className='header__button'
               type='button'
-              onClick={handleSignUpClick}
+              onClick={selectSignUp}
             >
               Sign Up
             </button>
             <button
               className='header__button'
               type='button'
-              onClick={handleLoginClick}
+              onClick={selectLogin}
             >
               Log In
             </button>

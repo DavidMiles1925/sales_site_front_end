@@ -6,14 +6,12 @@
 }
 
 .about-us__wrapper {
-  width: 100%;
+  margin: 0 50px;
+  width: 75%;
   display: flex;
   flex-direction: column;
   grid-template-columns: ();
   align-items: flex-start;
-}
-
-.about-us__side-bar {
 }
 
 .about-us__title {

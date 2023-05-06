@@ -1,6 +1,6 @@
 import "./ProductsPage.css";
 
-function ProductsPage() {
+function ProductsPage({ productList }) {
   return (
     <div className='products'>
       <div className='products__side-bar'>

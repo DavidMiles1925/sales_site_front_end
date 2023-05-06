@@ -1,0 +1,26 @@
+.building__parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.building__title {
+  color: #19e6da;
+  font-weight: bold;
+  font-size: 70px;
+}
+
+.building__text {
+  color: #c7a47a;
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+}
+
+.building__text_type_upper {
+  max-width: 600px;
+}
+
+.building__text_type_lower {
+  max-width: 900px;
+}

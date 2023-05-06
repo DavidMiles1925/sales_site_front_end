@@ -11,3 +11,10 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Bruno Ace";
+  src: url(/src/fonts/Bruno_Ace/BrunoAce-Regular.ttf);
+  font-weight: 600;
+  font-style: bold;
+}

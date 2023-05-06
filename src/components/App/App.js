@@ -1,6 +1,12 @@
+// ********** Tools **********
 import { Route, Switch, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+// ********** Contexts **********
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { ValidationContext } from "../../contexts/ValidationContext";
+
+// ********** Page Components **********
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import AboutUs from "../AboutUs/AboutUs";
@@ -9,16 +15,23 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
+
+// ********** Styles **********
 import "../../fonts/fonts.css";
 import "./App.css";
-import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
-import { ValidationContext } from "../../contexts/ValidationContext";
+import StillBuilding from "../StillBuilding/StillBuilding";
 
 const App = () => {
+  // ********** Developer Tools **********
   const [isDevMode, setIsDevMode] = useState(false);
+
+  // ********** User Context **********
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+
+  // ********** Active Modal **********
   const [activeModal, setActiveModal] = useState("");
   const [disableButton, setDisableButton] = useState(true);
   const [errorDisplay, setErrorDisplay] = useState({});
@@ -26,11 +39,23 @@ const App = () => {
 
   const history = useHistory();
 
+  // ********** User Selections **********
+  function selectLogin() {
+    setActiveModal("login");
+  }
+
+  function selectSignUp() {
+    setActiveModal("signup");
+  }
+
+  // ********** Submission Handlers **********
   function handleLoginSubmit() {
+    history.push("/building");
     closeModal();
   }
 
   function handleSignUpSubmit() {
+    history.push("/building");
     closeModal();
   }
 
@@ -42,14 +67,7 @@ const App = () => {
     setIsAdmin(!isAdmin);
   }
 
-  function handleLoginClick() {
-    setActiveModal("login");
-  }
-
-  function handleSignUpClick() {
-    setActiveModal("signup");
-  }
-
+  // ********** Modal Tools **********
   function closeModal() {
     setActiveModal("");
   }
@@ -73,6 +91,7 @@ const App = () => {
     setErrorDisplay({ value, message });
   }
 
+  // ********** Authentication **********
   /*function getLocalToken() {
     try {
       const jwt = localStorage.getItem("token");
@@ -82,6 +101,7 @@ const App = () => {
     }
   }*/
 
+  // ********** Listeners **********
   useEffect(() => {
     setCurrentUser({ email: "test@test.com", name: "TestUser" });
   }, []);
@@ -105,10 +125,7 @@ const App = () => {
       <CurrentUserContext.Provider
         value={{ currentUser, isLoggedIn, isAdmin, isDevMode }}
       >
-        <Header
-          handleLoginClick={handleLoginClick}
-          handleSignUpClick={handleSignUpClick}
-        />
+        <Header selectLogin={selectLogin} selectSignUp={selectSignUp} />
         {isDevMode ? (
           <DeveloperPanel
             handleToggleLogin={handleToggleLogin}
@@ -120,6 +137,9 @@ const App = () => {
         <Switch>
           <Route path='/about'>
             <AboutUs />
+          </Route>
+          <Route path='/building'>
+            <StillBuilding />
           </Route>
           <Route path='/cart'>
             <ShoppingCart />

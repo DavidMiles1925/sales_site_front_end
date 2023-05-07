@@ -10,21 +10,21 @@
 
 **Developer Tools**
 
-`DeveloperPanel` - React Component: A panel that appears just below the site header to aid with testing and development. It is meant to be a testing sandbox for new code.
-`devMode`/`setDevMode(bool)` - State: Enables/Disables developer panel. Value `true`: Enabled, `false`: Disabled
-`handleToggleLogic()` - Function: Toggles value of `isLoggedIn`.
+`DeveloperPanel` - React Component: A panel that appears just below the site header to aid with testing and development. It is meant to be a testing sandbox for new code.  
+`devMode`/`setDevMode(bool)` - State: Enables/Disables developer panel. Value `true`: Enabled, `false`: Disabled  
+`handleToggleLogic()` - Function: Toggles value of `isLoggedIn`.  
 `handleToggleAdmin()` - Function: Toggles value of `isAdmin`.
 
 **User Selections:**
 
-`selectLogin()` - Function: Opens a modal for user login.
-`selectSignup()` - Function: Opens a modal for site registration.
+`selectLogin()` - Function: Opens a modal for user login.  
+`selectSignup()` - Function: Opens a modal for site registration.  
 `selectCard()` - Function: Opens a preview modal when a user clicks on a card, such as a product card.
 
 **Submission Handlers**
 
-`handleLoginSubmit()` - Function:
-`handleSignUpSubmit()` - Function:
+`handleLoginSubmit()` - Function:  
+`handleSignUpSubmit()` - Function:  
 `addToCart()` - Function: Adds/Removes a product from the `currentUser`'s `user.cart` array.
 
 **Modal Logic**
@@ -37,13 +37,13 @@ This is a sidebar component used for user navigation. It is mobile ready, stayin
 
 **States**
 
-`isOpen` - Responisible for controlling whether dropdown menu is open or closed.
+`isOpen` - Responisible for controlling whether dropdown menu is open or closed.  
 `setIsOpen(bool)`
 
 **Functions**
 
-`handleTopClick()` - Function: Opens/Closes Dropdown on mobile device. Sets `currentCategory` to `'all'`.
-`handleCategoryClick()` - Function: Sets `currentCategory` to value of `path`
+`handleTopClick()` - Function: Opens/Closes Dropdown on mobile device. Sets `currentCategory` to `'all'`.  
+`handleCategoryClick()` - Function: Sets `currentCategory` to value of `path`  
 `handleResize()` - Function:
 
 ## Custom Utilities:
@@ -54,13 +54,13 @@ This is a custom hook to enable input validation in forms.
 
 **States:**
 
-`values` - Stores the values of input fields. Updated with `handleChange()`.
+`values` - Stores the values of input fields. Updated with `handleChange()`.  
 `setValues({})` -
-
-`errors`- Stores input validation errors returned by browser. Should be displayed in a `<span>` element underneath `<input>` field.
+s
+`errors`- Stores input validation errors returned by browser. Should be displayed in a `<span>` element underneath `<input>` field.  
 `setErrors({})`
 
-`isValid` - Will return `true` if the form is valid.
+`isValid` - Will return `true` if the form is valid.  
 `setIsValid(bool)`
 
 **Functions:**
@@ -73,38 +73,28 @@ This is a custom hook to enable input validation in forms.
 
 ## Dependencies:
 
-"@testing-library/jest-dom": "^5.16.5",
-"@testing-library/react": "^13.4.0",
-"@testing-library/user-event": "^13.5.0",
-"hashrouter": "^1.1.1",
-"history": "^5.3.0",
-"mongoose": "^7.0.1",
-"react": "^18.2.0",
-"react-dom": "^18.2.0",
-"react-router": "^6.11.1",
-"react-router-dom": "^5.3.4",
-"react-scripts": "5.0.1",
+"@testing-library/jest-dom": "^5.16.5",  
+"@testing-library/react": "^13.4.0",  
+"@testing-library/user-event": "^13.5.0",  
+"hashrouter": "^1.1.1",  
+"history": "^5.3.0",  
+"mongoose": "^7.0.1",  
+"react": "^18.2.0",  
+"react-dom": "^18.2.0",  
+"react-router": "^6.11.1",  
+"react-router-dom": "^5.3.4",  
+"react-scripts": "5.0.1",  
 "web-vitals": "^2.1.4"
 
 ## Dev Dependenies:
 
-"@types/react-router-dom": "^5.3.3",
+"@types/react-router-dom": "^5.3.3",  
 "gh-pages": "^5.0.0"
 
 ## Versions
 
-`node` v18.13.0
+`node` v18.13.0  
 `npm` v8.19.3
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ### Deployment
 

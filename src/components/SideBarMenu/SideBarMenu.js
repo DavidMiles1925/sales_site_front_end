@@ -1,19 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { FilterContext } from "../../contexts/FilterContext";
 import "./SideBarMenu.css";
 
 const SideBarMenu = ({ dropdownOptions }) => {
-  const { openOnWideScreen, defaultOpen, titleText, dropdownItems } =
-    dropdownOptions;
+  const { setCurrentCategory } = useContext(FilterContext);
+  const { openOnWideScreen, titleText, dropdownItems } = dropdownOptions;
 
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  function handleItemClick(path) {
+  function handleTopClick() {
+    if (window.innerWidth < 960) {
+      toggleDropdown();
+    }
+    setCurrentCategory("all");
+  }
+
+  function handleCategoryClick(path) {
+    const pathLower = path.toLowerCase();
+    setCurrentCategory(pathLower);
     handleResize();
   }
 
   function handleResize() {
-    if (window.innerWidth > 800) {
+    if (window.innerWidth > 960) {
       setIsOpen(true);
     } else {
       setIsOpen(false);
@@ -31,16 +41,16 @@ const SideBarMenu = ({ dropdownOptions }) => {
 
   return (
     <div className='dropdown'>
-      <button className='dropdown__toggle' onClick={toggleDropdown}>
+      <button className='dropdown__toggle' onClick={handleTopClick}>
         {titleText}
       </button>
       {isOpen && (
         <div className='dropdown__menu'>
           {dropdownItems.map((item) => (
             <div
-              key={item.value}
+              key={item.text}
               className='dropdown__item'
-              onClick={() => handleItemClick(item.path)}
+              onClick={() => handleCategoryClick(item.path)}
             >
               {item.text}
             </div>

@@ -10,10 +10,9 @@ const contactInfo = {
 };
 
 const productCatalog = [
-  { text: "One Fish", path: "Red Fish" },
-  { text: "Two Fish", path: "Red Fish" },
-  { text: "Red Fish", path: "Red Fish" },
-  { text: "Blue Fish", path: "Blue Fish" },
+  { text: "Cool", path: "cool" },
+  { text: "Neat", path: "neat" },
+  { text: "Awesome", path: "awesome" },
 ];
 
 export { contactInfo, productCatalog };

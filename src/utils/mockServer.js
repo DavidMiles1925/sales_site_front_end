@@ -40,8 +40,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "cool",
+      category: "cool",
     },
     {
       _id: "002",
@@ -51,8 +50,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "neat",
+      category: "neat",
     },
     {
       _id: "003",
@@ -62,8 +60,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "awesome",
+      category: "awesome",
     },
     {
       _id: "004",
@@ -73,8 +70,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "cool",
+      category: "cool",
     },
     {
       _id: "005",
@@ -84,8 +80,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "neat",
+      category: "neat",
     },
     {
       _id: "006",
@@ -95,8 +90,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "awesome",
+      category: "awesome",
     },
     {
       _id: "007",
@@ -106,8 +100,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "cool",
+      category: "cool",
     },
     {
       _id: "008",
@@ -117,8 +110,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "neat",
+      category: "neat",
     },
     {
       _id: "009",
@@ -128,8 +120,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "awesome",
+      category: "awesome",
     },
     {
       _id: "010",
@@ -139,8 +130,7 @@ const database = {
       price: "999.99",
       image: "./images/transmogrofier.jpg",
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      category: "products",
-      subcategory1: "cool",
+      category: "cool",
     },
   ],
 };

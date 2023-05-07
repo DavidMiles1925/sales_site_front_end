@@ -2,9 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./ProjectCard.css";
 
-function ProductCard({ card, selectCard, handleCartClick }) {
-  const { isLoggedIn } = useContext(CurrentUserContext);
-
+function ProductCard({ card, selectCard, addToCart }) {
   const [isInCart, setIsInCart] = useState(false);
 
   function setCartClassNames() {
@@ -12,10 +10,6 @@ function ProductCard({ card, selectCard, handleCartClick }) {
       ? "card__cart-button card__cart-button_type_in-cart"
       : "card__cart-button";
   }
-
-  useEffect(() => {
-    console.log(card.image);
-  }, []);
 
   return (
     <li
@@ -32,17 +26,19 @@ function ProductCard({ card, selectCard, handleCartClick }) {
         />
       </div>
       <div className='card__header'>
-        <p className='card__text card__name'>{card.name}</p>
-        <p className='card__text card__price'>{`$${card.price}`}</p>
-        {isLoggedIn && (
+        <div className='card__text-container'>
+          <p className='card__text card__price'>{`$${card.price}`}</p>
+          <p className='card__text card__name'>{card.name}</p>
+        </div>
+        <div className='card__cart-button-container'>
           <button
             className={setCartClassNames()}
             alt='card__cart-button'
-            onClick={handleCartClick}
+            onClick={addToCart}
           >
-            {isInCart ? "Add to Cart" : "In Cart"}
+            {!isInCart ? "Add to Cart" : "In Cart"}
           </button>
-        )}
+        </div>
       </div>
     </li>
   );

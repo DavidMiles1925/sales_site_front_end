@@ -1,7 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard";
 import "./CardsSection.css";
 
-function CardsSection({ cards, selectCard, handleCartClick }) {
+function CardsSection({ cards, selectCard, addToCart }) {
   // Filter Criteria
 
   return (
@@ -12,7 +12,7 @@ function CardsSection({ cards, selectCard, handleCartClick }) {
             key={card._id}
             card={card}
             selectCard={selectCard}
-            handleCartClick={handleCartClick}
+            addToCart={addToCart}
           />
         ))}
       </ul>

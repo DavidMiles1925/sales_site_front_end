@@ -59,9 +59,13 @@ const App = () => {
   function selectCard(card) {}
 
   // ********** Submission Handlers **********
-  function handleLoginSubmit() {
-    history.push("/building");
-    closeModal();
+  function handleLoginSubmit(user) {
+    if (user.email === "user@host.com" && user.password === "password") {
+      setIsLoggedIn(true);
+      closeModal();
+    } else {
+      setErrorDisplay({ value: true, message: "Invalid email or password." });
+    }
   }
 
   function handleSignUpSubmit() {
@@ -77,7 +81,9 @@ const App = () => {
     setIsAdmin(!isAdmin);
   }
 
-  function handleCartClick() {}
+  function addToCart() {
+    isLoggedIn ? history.push("building") : setActiveModal("signup");
+  }
 
   // ********** Modal Tools **********
   function closeModal() {
@@ -167,7 +173,7 @@ const App = () => {
             <ProductsPage
               productList={productList}
               selectCard={selectCard}
-              handleCartClick={handleCartClick}
+              addToCart={addToCart}
             />
           </Route>
           <Route path='/'>

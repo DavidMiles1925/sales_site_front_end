@@ -1,16 +1,25 @@
 import CardsSection from "../CardsSection/CardsSection";
+import SideBarMenu from "../SideBarMenu/SideBarMenu";
 import "./ProductsPage.css";
+import { productCatalog } from "../../utils/constants";
 
-function ProductsPage({ productList, selectCard, handleCartClick }) {
+function ProductsPage({ productList, selectCard, addToCart }) {
+  const dropdownOptions = {
+    openOnWideScreen: true,
+    defaultOpen: true,
+    titleText: "Products",
+    dropdownItems: productCatalog,
+  };
+
   return (
     <div className='products'>
       <div className='products__side-bar'>
-        <h2 className='products__title'>Products</h2>
+        <SideBarMenu dropdownOptions={dropdownOptions} />
       </div>
       <CardsSection
         cards={productList}
         selectCard={selectCard}
-        handleCartClick={handleCartClick}
+        addToCart={addToCart}
       />
     </div>
   );

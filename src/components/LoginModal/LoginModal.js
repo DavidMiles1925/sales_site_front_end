@@ -10,7 +10,7 @@ function LoginModal({ isLoading }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    handleLoginSubmit();
+    handleLoginSubmit(values);
   }
 
   useEffect(() => {

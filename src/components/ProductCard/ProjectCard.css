@@ -5,7 +5,13 @@
   display: flex;
   flex-direction: column;
   width: 200px;
-  height: 200px;
+  height: 320px;
+  transition: 0.1s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .card__image-container {
@@ -13,13 +19,20 @@
   justify-content: center;
 }
 
-.card__header {
-  padding: 10px;
+.card__image {
+  height: 200px;
+  width: 200px;
 }
 
-.card__image {
-  height: 100px;
-  width: 100px;
+.card__header {
+  max-height: 140px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__text-container {
+  height: 80px;
 }
 
 .card__text {
@@ -30,4 +43,27 @@
 }
 
 .card__price {
+}
+
+.card__cart-button-container {
+  margin: auto 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.card__cart-button {
+  margin: auto 0 0 0;
+  border: solid 2 px black;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+  font-family: "Bruno-Ace";
+  transition: 0.1s;
+}
+
+.card__cart-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
 }

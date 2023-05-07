@@ -9,4 +9,11 @@ const contactInfo = {
   LINKEDIN: "https://www.linkedin.com/in/david-miles-a75a999a/",
 };
 
-export { contactInfo };
+const productCatalog = [
+  { text: "One Fish", path: "Red Fish" },
+  { text: "Two Fish", path: "Red Fish" },
+  { text: "Red Fish", path: "Red Fish" },
+  { text: "Blue Fish", path: "Blue Fish" },
+];
+
+export { contactInfo, productCatalog };

@@ -19,7 +19,7 @@
 
 `selectLogin()` - Function: Opens a modal for user login.  
 `selectSignup()` - Function: Opens a modal for site registration.  
-`selectCard()` - Function: Opens a preview modal when a user clicks on a card, such as a product card.
+`handleCardClick()` - Function: Opens a preview modal when a user clicks on a card, such as a product card.
 
 **Submission Handlers**
 

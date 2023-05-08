@@ -6,7 +6,7 @@ const SideBarMenu = ({ dropdownOptions }) => {
   const { setCurrentCategory } = useContext(FilterContext);
   const { openOnWideScreen, titleText, dropdownItems } = dropdownOptions;
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(null);
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   function handleTopClick() {
@@ -31,12 +31,14 @@ const SideBarMenu = ({ dropdownOptions }) => {
   }
 
   useEffect(() => {
-    if (openOnWideScreen) {
-      window.addEventListener("resize", handleResize);
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }
+    handleResize();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (

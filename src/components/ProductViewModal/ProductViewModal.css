@@ -1,0 +1,85 @@
+.modal__image {
+  height: 368px;
+  width: 368px;
+  border-top-left-radius: 19px;
+  border-bottom-left-radius: 19px;
+}
+
+.modal__info-wrapper {
+  height: 368px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Bruno-Ace";
+}
+
+.modal__title {
+  margin: 0;
+  padding: 20px 10px 10px 20px;
+}
+
+.modal__description-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 0 0 20px;
+}
+
+.modal__price {
+  margin: 0 0 auto 0;
+  padding: 10px;
+}
+
+.modal__description {
+  max-height: 180px;
+  margin: 0;
+  padding: 0 10px 10px;
+  font-size: 16px;
+  overflow: auto;
+}
+
+.card__cart-button {
+  width: 125px;
+  margin: auto auto 20px auto;
+  border: solid 2 px black;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+  font-family: "Bruno-Ace";
+  transition: 0.1s;
+}
+
+.card__cart-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 766px) {
+  .modal__image {
+    height: 250px;
+    width: 250px;
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .modal__info-wrapper {
+    max-width: 250px;
+  }
+
+  .modal__title {
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .modal__price {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .modal__description {
+    max-height: 180px;
+    padding: 10px;
+    font-size: 14px;
+  }
+}

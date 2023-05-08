@@ -5,7 +5,7 @@ import CardsSection from "../CardsSection/CardsSection";
 import SideBarMenu from "../SideBarMenu/SideBarMenu";
 import "./ProductsPage.css";
 
-function ProductsPage({ productList, selectCard, addToCart }) {
+function ProductsPage({ productList, handleCardClick, addToCart }) {
   const [currentCategory, setCurrentCategory] = useState("all");
 
   const dropdownOptions = {
@@ -22,7 +22,7 @@ function ProductsPage({ productList, selectCard, addToCart }) {
         </div>
         <CardsSection
           cards={productList}
-          selectCard={selectCard}
+          handleCardClick={handleCardClick}
           addToCart={addToCart}
         />
       </div>

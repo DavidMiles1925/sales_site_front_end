@@ -3,7 +3,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import "./CardsSection.css";
 import { FilterContext } from "../../contexts/FilterContext";
 
-function CardsSection({ cards, selectCard, addToCart }) {
+function CardsSection({ cards, handleCardClick, addToCart }) {
   const { currentCategory } = useContext(FilterContext);
 
   return (
@@ -18,7 +18,7 @@ function CardsSection({ cards, selectCard, addToCart }) {
             <ProductCard
               key={fiteredCard._id}
               card={fiteredCard}
-              selectCard={selectCard}
+              handleCardClick={handleCardClick}
               addToCart={addToCart}
             />
           ))}

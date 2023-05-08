@@ -35,7 +35,7 @@
 }
 
 .dropdown__item {
-  padding: 8px 16px 8px 48px;
+  padding: 8px 16px 8px 28px;
   cursor: pointer;
   font-family: "Bruno-Ace";
   transition: 0.1s;

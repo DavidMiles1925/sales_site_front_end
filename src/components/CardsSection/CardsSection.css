@@ -4,3 +4,9 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+@media screen and (max-width: 560px) {
+  .cards__cards {
+    padding: 0;
+  }
+}

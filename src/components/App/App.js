@@ -22,6 +22,7 @@ import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
 // ********** Modals **********
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import ProductViewModal from "../ProductViewModal/ProductViewModal";
 
 // ********** Styles **********
 import "../../fonts/fonts.css";
@@ -38,9 +39,11 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isInCart, setIsInCart] = useState(false);
 
   // ********** Active Modal **********
   const [activeModal, setActiveModal] = useState("");
+  const [activeCard, setActiveCard] = useState({});
   const [disableButton, setDisableButton] = useState(true);
   const [errorDisplay, setErrorDisplay] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +59,11 @@ const App = () => {
     setActiveModal("signup");
   }
 
-  function selectCard(card) {}
+  function handleCardClick(card) {
+    console.log(card);
+    setActiveModal("productpreview");
+    setActiveCard(card);
+  }
 
   // ********** Submission Handlers **********
   function handleLoginSubmit(user) {
@@ -82,13 +89,15 @@ const App = () => {
   }
 
   function addToCart() {
-    isLoggedIn ? history.push("building") : setActiveModal("signup");
+    if (isLoggedIn) {
+      closeModal();
+      history.push("building");
+    } else {
+      setActiveModal("signup");
+    }
   }
 
   // ********** Modal Tools **********
-  function closeModal() {
-    setActiveModal("");
-  }
 
   function closeActiveModal(evt) {
     if (
@@ -145,7 +154,7 @@ const App = () => {
   return (
     <div className='App'>
       <CurrentUserContext.Provider
-        value={{ currentUser, isLoggedIn, isAdmin, isDevMode }}
+        value={{ currentUser, isLoggedIn, isInCart, isAdmin, isDevMode }}
       >
         <Header selectLogin={selectLogin} selectSignUp={selectSignUp} />
         {isDevMode ? (
@@ -172,7 +181,7 @@ const App = () => {
           <Route path='/products'>
             <ProductsPage
               productList={productList}
-              selectCard={selectCard}
+              handleCardClick={handleCardClick}
               addToCart={addToCart}
             />
           </Route>
@@ -210,6 +219,14 @@ const App = () => {
           >
             <RegisterModal isLoading={isLoading} />
           </ValidationContext.Provider>
+        )}
+        {activeModal === "productpreview" && (
+          <ProductViewModal
+            card={activeCard}
+            isInCart={isInCart}
+            addToCart={addToCart}
+            closeActiveModal={closeActiveModal}
+          />
         )}
       </CurrentUserContext.Provider>
     </div>

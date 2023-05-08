@@ -16,16 +16,17 @@ function Header({ selectLogin, selectSignUp }) {
           <img className='logo' src={logo} alt='Logo'></img>
           <h1 className='header__title'>Site Name</h1>
         </Link>
-        <Link className='header__link header__link-about' to='/about'>
-          <p className='header__text' type='button'>
-            About Us
-          </p>
-        </Link>
         <Link className='header__link header__link-products' to='/products'>
           <p className='header__text' type='button'>
             Our Products
           </p>
         </Link>
+        <Link className='header__link header__link-about' to='/about'>
+          <p className='header__text' type='button'>
+            About Us
+          </p>
+        </Link>
+
         {isLoggedIn ? (
           isAdmin ? (
             <Link className='header__link header__link-cart' to='/building'>

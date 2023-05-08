@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sales_site_front_end/static/css/main.0cee6087.css",
-    "main.js": "/sales_site_front_end/static/js/main.861d35ce.js",
+    "main.css": "/sales_site_front_end/static/css/main.26ffd6db.css",
+    "main.js": "/sales_site_front_end/static/js/main.f9dd00f8.js",
     "static/js/787.c9748194.chunk.js": "/sales_site_front_end/static/js/787.c9748194.chunk.js",
     "static/media/Sigmar-Regular.ttf": "/sales_site_front_end/static/media/Sigmar-Regular.daeeaca2f7490cb1c50c.ttf",
     "static/media/BrunoAce-Regular.ttf": "/sales_site_front_end/static/media/BrunoAce-Regular.57d90f1b7b321c6768d4.ttf",
@@ -18,12 +18,12 @@
     "static/media/personal_stormtrooper.jpg": "/sales_site_front_end/static/media/personal_stormtrooper.9cb16ccaa6ac25d812ed.jpg",
     "static/media/smart_glove.jpg": "/sales_site_front_end/static/media/smart_glove.e3e9a1d1b9b25fc72db8.jpg",
     "index.html": "/sales_site_front_end/index.html",
-    "main.0cee6087.css.map": "/sales_site_front_end/static/css/main.0cee6087.css.map",
-    "main.861d35ce.js.map": "/sales_site_front_end/static/js/main.861d35ce.js.map",
+    "main.26ffd6db.css.map": "/sales_site_front_end/static/css/main.26ffd6db.css.map",
+    "main.f9dd00f8.js.map": "/sales_site_front_end/static/js/main.f9dd00f8.js.map",
     "787.c9748194.chunk.js.map": "/sales_site_front_end/static/js/787.c9748194.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0cee6087.css",
-    "static/js/main.861d35ce.js"
+    "static/css/main.26ffd6db.css",
+    "static/js/main.f9dd00f8.js"
   ]
 }

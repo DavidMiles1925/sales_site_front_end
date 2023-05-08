@@ -88,7 +88,8 @@ const App = () => {
     setIsAdmin(!isAdmin);
   }
 
-  function addToCart() {
+  function addToCart(e) {
+    e.stopPropagation();
     if (isLoggedIn) {
       closeModal();
       history.push("building");

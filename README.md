@@ -29,6 +29,13 @@
 
 **Modal Logic**
 
+`closeModal()` - Function: Sets the value of `activeModal` to null, closing all open modals.  
+`closeActiveModal(e)` - Function: When a click event is generated on the modal, sets the value of `activeModal` to null if the click orginated from modal overlay.  
+`handleModalErrorDisplay(value, message)` - Function: Displays an error message at the bottom of the modal window.
+Arguments:  
+--`value`: A value of `true` displays error message in modal.
+--`message`: string.
+
 ## Custom Components Worth Noting:
 
 ### `SideBarMenu({ dropdownOptions })`:

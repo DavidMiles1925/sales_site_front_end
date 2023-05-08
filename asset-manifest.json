@@ -1,19 +1,29 @@
 {
   "files": {
     "main.css": "/sales_site_front_end/static/css/main.b21e6f40.css",
-    "main.js": "/sales_site_front_end/static/js/main.4441e13d.js",
+    "main.js": "/sales_site_front_end/static/js/main.315753ae.js",
     "static/js/787.c9748194.chunk.js": "/sales_site_front_end/static/js/787.c9748194.chunk.js",
     "static/media/Sigmar-Regular.ttf": "/sales_site_front_end/static/media/Sigmar-Regular.daeeaca2f7490cb1c50c.ttf",
     "static/media/BrunoAce-Regular.ttf": "/sales_site_front_end/static/media/BrunoAce-Regular.57d90f1b7b321c6768d4.ttf",
+    "static/media/handheld_cloud_server.jpg": "/sales_site_front_end/static/media/handheld_cloud_server.ac885ea3f84d72efd812.jpg",
+    "static/media/bathroom_ai.jpg": "/sales_site_front_end/static/media/bathroom_ai.d03ab02b623219a10828.jpg",
     "static/media/demo-site.png": "/sales_site_front_end/static/media/demo-site.589012ecd4ba30126158.png",
+    "static/media/foldinator.jpg": "/sales_site_front_end/static/media/foldinator.56a580c389ac16028a01.jpg",
+    "static/media/combat_control.jpg": "/sales_site_front_end/static/media/combat_control.0bbe21a7667d2b210f2f.jpg",
     "static/media/logo.png": "/sales_site_front_end/static/media/logo.482340219713f73f2c7d.png",
+    "static/media/wizamodingle.jpg": "/sales_site_front_end/static/media/wizamodingle.690420c98cbc0e7ed1b1.jpg",
+    "static/media/power_wheels_advanced.jpg": "/sales_site_front_end/static/media/power_wheels_advanced.62d2da5615f576575ad4.jpg",
+    "static/media/ultimate_ice_cubes.jpg": "/sales_site_front_end/static/media/ultimate_ice_cubes.cfc9282b0a5c9a8f21c2.jpg",
+    "static/media/transmogrofier.jpg": "/sales_site_front_end/static/media/transmogrofier.cbbceda0bb5ef6b5ee16.jpg",
+    "static/media/personal_stormtrooper.jpg": "/sales_site_front_end/static/media/personal_stormtrooper.9cb16ccaa6ac25d812ed.jpg",
+    "static/media/smart_glove.jpg": "/sales_site_front_end/static/media/smart_glove.e3e9a1d1b9b25fc72db8.jpg",
     "index.html": "/sales_site_front_end/index.html",
     "main.b21e6f40.css.map": "/sales_site_front_end/static/css/main.b21e6f40.css.map",
-    "main.4441e13d.js.map": "/sales_site_front_end/static/js/main.4441e13d.js.map",
+    "main.315753ae.js.map": "/sales_site_front_end/static/js/main.315753ae.js.map",
     "787.c9748194.chunk.js.map": "/sales_site_front_end/static/js/787.c9748194.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b21e6f40.css",
-    "static/js/main.4441e13d.js"
+    "static/js/main.315753ae.js"
   ]
 }

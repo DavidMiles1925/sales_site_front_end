@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+
 import "./DeveloperPanel.css";
 
 function DeveloperPanel({ handleToggleLogin, handleToggleAdmin }) {
@@ -42,5 +43,9 @@ function DeveloperPanel({ handleToggleLogin, handleToggleAdmin }) {
     </div>
   );
 }
+
+/*
+
+*/
 
 export default DeveloperPanel;

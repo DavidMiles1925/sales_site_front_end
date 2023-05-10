@@ -5,9 +5,13 @@ import DividerCard from "../DividerCard/DividerCard";
 import "./Header.css";
 import logo from "../../images/logo.png";
 import cartIcon from "../../images/cart.png";
+import UserDropdownMenu from "../UserDropdownMenu/UserDropdownMenu";
+import { userDropdown } from "../../utils/constants";
 
-function Header({ selectLogin, selectSignUp }) {
+function Header({ selectLogin, selectSignUp, history }) {
   const { isLoggedIn, isAdmin } = useContext(CurrentUserContext);
+
+  const dropdownItems = userDropdown;
 
   return (
     <header className='header'>
@@ -33,10 +37,7 @@ function Header({ selectLogin, selectSignUp }) {
               <p className='header__text header__text-admin'>Admin Profile</p>
             </Link>
           ) : (
-            <Link className='header__link header__link-cart' to='/building'>
-              <p className='header__text'>Wishlist</p>
-              <img className='header__cart' src={cartIcon} alt='Cart'></img>
-            </Link>
+            <UserDropdownMenu dropdownItems={dropdownItems} history={history} />
           )
         ) : (
           <>

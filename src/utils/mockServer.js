@@ -49,7 +49,7 @@ const database = {
       _id: "001",
       name: "Amazing Transmogrifier",
       description:
-        "We found this under the kitchen sink. Whatever this thing is, it seems really useful. So far we've used it empty the litter box, clean the gutters, and remove the tops from our strawberries.",
+        "We found this under the kitchen sink. Whatever this thing is, it seems really useful. So far we've used it to empty the litter box, clean the gutters, and remove the tops from our strawberries.",
       price: "999.99",
       image: transmogrofierImage,
       link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",

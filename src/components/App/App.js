@@ -20,6 +20,7 @@ import StillBuilding from "../StillBuilding/StillBuilding";
 import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
 
 // ********** Modals **********
+import { userDropdown } from "../../utils/constants";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import ProductViewModal from "../ProductViewModal/ProductViewModal";
@@ -30,7 +31,7 @@ import "./App.css";
 
 const App = () => {
   // ********** Developer Tools **********
-  const [isDevMode, setIsDevMode] = useState(false);
+  const [isDevMode, setIsDevMode] = useState(true);
 
   // ********** Server **********
   const [productList, setProductList] = useState([]);
@@ -40,15 +41,22 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
+  const [activeMenuSelection, setActiveMenuSelection] = useState({});
+  const [alternateAvatar, setAlternateAvatar] = useState("");
 
   // ********** Active Modal **********
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState("T");
   const [activeCard, setActiveCard] = useState({});
   const [disableButton, setDisableButton] = useState(true);
   const [errorDisplay, setErrorDisplay] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const history = useHistory();
+
+  function getUserFirstLetter(name) {
+    const firstletter = name.slice(0, 1);
+    return firstletter;
+  }
 
   // ********** User Selections **********
   function selectLogin() {
@@ -60,7 +68,6 @@ const App = () => {
   }
 
   function handleCardClick(card) {
-    console.log(card);
     setActiveModal("productpreview");
     setActiveCard(card);
   }
@@ -69,6 +76,7 @@ const App = () => {
   function handleLoginSubmit(user) {
     if (user.email === "user@host.com" && user.password === "password") {
       setIsLoggedIn(true);
+      setActiveMenuSelection(userDropdown[0]);
       closeModal();
     } else {
       setErrorDisplay({ value: true, message: "Invalid email or password." });
@@ -80,8 +88,13 @@ const App = () => {
     closeModal();
   }
 
+  function handleLogOut() {
+    setIsLoggedIn(false);
+  }
+
   function handleToggleLogin() {
     setIsLoggedIn(!isLoggedIn);
+    setActiveMenuSelection(userDropdown[0]);
   }
 
   function handleToggleAdmin() {
@@ -131,11 +144,19 @@ const App = () => {
 
   // ********** Listeners **********
   useEffect(() => {
+    setActiveMenuSelection(userDropdown[0]);
+  }, []);
+
+  useEffect(() => {
     setProductList(database.products);
   }, []);
 
   useEffect(() => {
-    setCurrentUser({ email: "test@test.com", name: "TestUser" });
+    const user = database.users[0];
+    console.log(user);
+    setCurrentUser(user);
+    console.log(user.name);
+    setAlternateAvatar(getUserFirstLetter(user.name));
   }, []);
 
   useEffect(() => {
@@ -155,9 +176,23 @@ const App = () => {
   return (
     <div className='App'>
       <CurrentUserContext.Provider
-        value={{ currentUser, isLoggedIn, isInCart, isAdmin, isDevMode }}
+        value={{
+          currentUser,
+          alternateAvatar,
+          isLoggedIn,
+          isInCart,
+          activeMenuSelection,
+          isAdmin,
+          isDevMode,
+          handleLogOut,
+          setActiveMenuSelection,
+        }}
       >
-        <Header selectLogin={selectLogin} selectSignUp={selectSignUp} />
+        <Header
+          selectLogin={selectLogin}
+          selectSignUp={selectSignUp}
+          history={history}
+        />
         {isDevMode ? (
           <DeveloperPanel
             handleToggleLogin={handleToggleLogin}

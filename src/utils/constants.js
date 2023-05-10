@@ -1,4 +1,7 @@
-// Contact Info
+const myProfileImage = require("../images/question.png");
+const myCartImage = require("../images/cart.png");
+const customerServiceImage = require("../images/question.png");
+
 const contactInfo = {
   EMAIL: "email@email.com",
   PHONE_MAIN: "(000) 000-0000",
@@ -15,4 +18,15 @@ const productCatalog = [
   { text: "Awesome", path: "awesome" },
 ];
 
-export { contactInfo, productCatalog };
+const userDropdown = [
+  { text: "My Profile", path: "/building", image: "user" },
+  { text: "My Cart", path: "/cart", image: myCartImage },
+  {
+    text: "Customer Service",
+    path: "/building",
+    image: customerServiceImage,
+  },
+  { text: "Log Out", path: "logout", image: "door" },
+];
+
+export { contactInfo, productCatalog, userDropdown };

@@ -1,7 +1,7 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .dropdown__title-container {
@@ -56,11 +56,12 @@
   top: 100%;
   left: 0;
   z-index: 1;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   min-width: 160px;
   padding: 8px 0;
   max-height: 200px;
   transition: 0.1s;
+  box-shadow: -2px 2px;
 }
 
 .dropdown__item {

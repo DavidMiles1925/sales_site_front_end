@@ -25,36 +25,17 @@ const UserDropdownMenu = ({ dropdownItems, history }) => {
     if (item.path === "logout") {
       handleLogOut();
     }
-    handleResize();
+    toggleDropdown();
     history.push(item.path);
 
     setActiveMenuSelection(item);
   }
 
-  function handleResize() {
-    if (!isOpen) {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
-  }
-
-  useEffect(() => {
-    console.log(currentUser);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
     <div className='dropdown'>
       <div className='dropdown__title-container'>
         <button className='dropdown__toggle' onClick={handleTopClick} key={id}>
-          {text}
+          {currentUser.name}
         </button>
         {activeMenuSelection.image !== "user" ? (
           <img

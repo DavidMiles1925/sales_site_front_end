@@ -1,10 +1,10 @@
-.side-dropdown {
+.user-dropdown {
   position: relative;
   display: inline-block;
   margin-bottom: 24px;
 }
 
-.side-dropdown__toggle {
+.user-dropdown__toggle {
   background-color: transparent;
   border: none;
   color: #333;
@@ -16,37 +16,26 @@
   outline: none;
 }
 
-.side-dropdown__toggle:hover {
+.user-dropdown__toggle:hover {
   transform: scale(1.1);
   color: rgba(0, 0, 0, 0.6);
   cursor: pointer;
 }
 
-.side-dropdown__menu {
+.user-dropdown__menu {
   position: absolute;
-  top: 100%;
   left: 0;
   z-index: 1;
   background-color: white;
   min-width: 160px;
-  padding: 8px 0;
+  padding: 8px 0px;
   max-height: 200px;
   transition: 0.1s;
 }
 
-.side-dropdown__item {
+.user-dropdown__item {
   padding: 8px 16px 8px 28px;
   cursor: pointer;
   font-family: "Bruno-Ace";
   transition: 0.1s;
-}
-
-.side-dropdown__item:hover {
-  transform: scale(1.1);
-  color: rgba(0, 0, 0, 0.6);
-  cursor: pointer;
-}
-
-.dropdown-item:hover {
-  background-color: #f5f5f5;
 }

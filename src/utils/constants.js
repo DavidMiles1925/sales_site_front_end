@@ -19,8 +19,8 @@ const productCatalog = [
 ];
 
 const userDropdown = [
-  { text: "My Profile", path: "/building", image: "user" },
-  { text: "My Cart", path: "/cart", image: myCartImage },
+  { text: "My Profile", path: "/userprofile", image: "user" },
+  { text: "My Cart", path: "/userprofile/usercart", image: myCartImage },
   {
     text: "Customer Service",
     path: "/building",
@@ -29,4 +29,14 @@ const userDropdown = [
   { text: "Log Out", path: "logout", image: "door" },
 ];
 
-export { contactInfo, productCatalog, userDropdown };
+const userSidebar = [
+  { text: "Your Cart", path: "/userprofile/usercart" },
+  { text: "Your Information", path: "/userprofile/building" },
+  {
+    text: "Your Orders",
+    path: "/userprofile/building",
+  },
+  { text: "Log In and Security", path: "/userprofile/building" },
+];
+
+export { contactInfo, productCatalog, userDropdown, userSidebar };

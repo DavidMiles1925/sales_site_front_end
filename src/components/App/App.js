@@ -28,10 +28,11 @@ import ProductViewModal from "../ProductViewModal/ProductViewModal";
 // ********** Styles **********
 import "../../fonts/fonts.css";
 import "./App.css";
+import UserProfilePage from "../UserProfilePage/UserProfilePage";
 
 const App = () => {
   // ********** Developer Tools **********
-  const [isDevMode, setIsDevMode] = useState(true);
+  const [isDevMode, setIsDevMode] = useState(false);
 
   // ********** Server **********
   const [productList, setProductList] = useState([]);
@@ -90,6 +91,7 @@ const App = () => {
 
   function handleLogOut() {
     setIsLoggedIn(false);
+    history.push("/");
   }
 
   function handleToggleLogin() {
@@ -153,9 +155,7 @@ const App = () => {
 
   useEffect(() => {
     const user = database.users[0];
-    console.log(user);
     setCurrentUser(user);
-    console.log(user.name);
     setAlternateAvatar(getUserFirstLetter(user.name));
   }, []);
 
@@ -220,6 +220,20 @@ const App = () => {
               handleCardClick={handleCardClick}
               addToCart={addToCart}
             />
+          </Route>
+
+          <Route path='/userprofile'>
+            <div className='app__profile-page-container'>
+              <UserProfilePage history={history} />
+              <Switch>
+                <Route exact path='/userprofile/building'>
+                  <StillBuilding />
+                </Route>
+                <Route exact path='/userprofile/usercart'>
+                  <ShoppingCart />
+                </Route>
+              </Switch>
+            </div>
           </Route>
           <Route path='/'>
             <Main />

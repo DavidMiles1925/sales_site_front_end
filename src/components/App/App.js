@@ -41,7 +41,6 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isInCart, setIsInCart] = useState(false);
   const [activeMenuSelection, setActiveMenuSelection] = useState({});
   const [alternateAvatar, setAlternateAvatar] = useState("");
 
@@ -75,13 +74,18 @@ const App = () => {
 
   // ********** Submission Handlers **********
   function handleLoginSubmit(user) {
+    setIsLoading(true);
     if (user.email === "user@host.com" && user.password === "password") {
+      const user = database.users[0];
+      setCurrentUser(user);
+      setAlternateAvatar(getUserFirstLetter(user.name));
       setIsLoggedIn(true);
       setActiveMenuSelection(userDropdown[0]);
       closeModal();
     } else {
       setErrorDisplay({ value: true, message: "Invalid email or password." });
     }
+    setIsLoading(false);
   }
 
   function handleSignUpSubmit() {
@@ -150,13 +154,13 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    setProductList(database.products);
+    setCurrentUser({
+      cart: [],
+    });
   }, []);
 
   useEffect(() => {
-    const user = database.users[0];
-    setCurrentUser(user);
-    setAlternateAvatar(getUserFirstLetter(user.name));
+    setProductList(database.products);
   }, []);
 
   useEffect(() => {
@@ -180,7 +184,6 @@ const App = () => {
           currentUser,
           alternateAvatar,
           isLoggedIn,
-          isInCart,
           activeMenuSelection,
           isAdmin,
           isDevMode,
@@ -230,7 +233,11 @@ const App = () => {
                   <StillBuilding />
                 </Route>
                 <Route exact path='/userprofile/usercart'>
-                  <ShoppingCart />
+                  <ShoppingCart
+                    productList={productList}
+                    handleCardClick={handleCardClick}
+                    addToCart={addToCart}
+                  />
                 </Route>
               </Switch>
             </div>
@@ -273,7 +280,6 @@ const App = () => {
         {activeModal === "productpreview" && (
           <ProductViewModal
             card={activeCard}
-            isInCart={isInCart}
             addToCart={addToCart}
             closeActiveModal={closeActiveModal}
           />

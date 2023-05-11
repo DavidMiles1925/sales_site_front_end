@@ -1,6 +1,7 @@
 .logo {
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
+  padding: 10px;
 }
 
 .header {
@@ -24,6 +25,10 @@
 .header__title {
   margin: 0 0 0 8px;
   font-size: 36px;
+}
+
+.header__title-add-on {
+  font-size: 24px;
 }
 
 .header__text {

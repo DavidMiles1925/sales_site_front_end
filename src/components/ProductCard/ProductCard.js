@@ -3,7 +3,9 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./ProjectCard.css";
 
 function ProductCard({ card, handleCardClick, addToCart }) {
-  const { isInCart } = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
+
+  const isInCart = currentUser.cart.some((item) => item === card._id);
 
   function setCartClassNames() {
     return isInCart
@@ -33,7 +35,7 @@ function ProductCard({ card, handleCardClick, addToCart }) {
           alt='card__cart-button'
           onClick={addToCart}
         >
-          {!isInCart ? "Add to Cart" : "In Cart"}
+          {!isInCart ? "Add to Cart" : "Remove From Cart"}
         </button>
       </div>
     </li>

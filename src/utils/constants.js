@@ -13,9 +13,9 @@ const contactInfo = {
 };
 
 const productCatalog = [
-  { text: "Cool", path: "cool" },
-  { text: "Neat", path: "neat" },
-  { text: "Awesome", path: "awesome" },
+  { text: "Hats", path: "hats" },
+  { text: "T-Shirts", path: "tshirts" },
+  { text: "Hoodies", path: "hoodies" },
 ];
 
 const userDropdown = [

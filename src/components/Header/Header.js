@@ -1,12 +1,11 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useContext } from "react";
+import UserDropdownMenu from "../UserDropdownMenu/UserDropdownMenu";
 import DividerCard from "../DividerCard/DividerCard";
+import { userDropdown } from "../../utils/constants";
 import "./Header.css";
 import logo from "../../images/logo.png";
-import cartIcon from "../../images/cart.png";
-import UserDropdownMenu from "../UserDropdownMenu/UserDropdownMenu";
-import { userDropdown } from "../../utils/constants";
 
 function Header({ selectLogin, selectSignUp, history }) {
   const { isLoggedIn, isAdmin } = useContext(CurrentUserContext);
@@ -18,11 +17,13 @@ function Header({ selectLogin, selectSignUp, history }) {
       <div className='header__info'>
         <Link className='header__link header__link-main' to='/main'>
           <img className='logo' src={logo} alt='Logo'></img>
-          <h1 className='header__title'>Site Name</h1>
+          <h1 className='header__title'>
+            Ben Miles<span className='header__title-add-on'> & The Dad</span>
+          </h1>
         </Link>
         <Link className='header__link header__link-products' to='/products'>
           <p className='header__text' type='button'>
-            Our Products
+            Merch
           </p>
         </Link>
         <Link className='header__link header__link-about' to='/about'>

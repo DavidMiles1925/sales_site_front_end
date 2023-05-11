@@ -4,7 +4,9 @@ import CardViewModal from "../CardViewModal/CardViewModal";
 import "./ProductViewModal.css";
 
 function ProductViewModal({ card, addToCart, closeActiveModal }) {
-  const { currentUser, isInCart } = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
+
+  const isInCart = currentUser.cart.some((item) => item === card._id);
 
   function setCartClassNames() {
     return isInCart

@@ -2,7 +2,7 @@
   width: 95%;
   max-width: 1440px;
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 7fr;
 }
 
 .products__title {
@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 800px) {
   .products {
     display: flex;
     flex-direction: column;

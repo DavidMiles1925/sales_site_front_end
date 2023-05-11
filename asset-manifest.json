@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sales_site_front_end/static/css/main.dc40836b.css",
-    "main.js": "/sales_site_front_end/static/js/main.7aa6c5dc.js",
+    "main.css": "/sales_site_front_end/static/css/main.19de7196.css",
+    "main.js": "/sales_site_front_end/static/js/main.e8acfc4a.js",
     "static/js/787.c9748194.chunk.js": "/sales_site_front_end/static/js/787.c9748194.chunk.js",
     "static/media/white-t.png": "/sales_site_front_end/static/media/white-t.4360618aee173da55067.png",
     "static/media/white-hoodie.png": "/sales_site_front_end/static/media/white-hoodie.d96649be6437adc0ecb8.png",
@@ -13,12 +13,12 @@
     "static/media/logo.png": "/sales_site_front_end/static/media/logo.17b7f8027785867cf91d.png",
     "static/media/BrunoAce-Regular.ttf": "/sales_site_front_end/static/media/BrunoAce-Regular.57d90f1b7b321c6768d4.ttf",
     "index.html": "/sales_site_front_end/index.html",
-    "main.dc40836b.css.map": "/sales_site_front_end/static/css/main.dc40836b.css.map",
-    "main.7aa6c5dc.js.map": "/sales_site_front_end/static/js/main.7aa6c5dc.js.map",
+    "main.19de7196.css.map": "/sales_site_front_end/static/css/main.19de7196.css.map",
+    "main.e8acfc4a.js.map": "/sales_site_front_end/static/js/main.e8acfc4a.js.map",
     "787.c9748194.chunk.js.map": "/sales_site_front_end/static/js/787.c9748194.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc40836b.css",
-    "static/js/main.7aa6c5dc.js"
+    "static/css/main.19de7196.css",
+    "static/js/main.e8acfc4a.js"
   ]
 }

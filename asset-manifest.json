@@ -1,29 +1,24 @@
 {
   "files": {
-    "main.css": "/sales_site_front_end/static/css/main.394d175d.css",
-    "main.js": "/sales_site_front_end/static/js/main.7e21a15d.js",
+    "main.css": "/sales_site_front_end/static/css/main.579abf3f.css",
+    "main.js": "/sales_site_front_end/static/js/main.393e1f20.js",
     "static/js/787.c9748194.chunk.js": "/sales_site_front_end/static/js/787.c9748194.chunk.js",
+    "static/media/white-t.png": "/sales_site_front_end/static/media/white-t.4360618aee173da55067.png",
+    "static/media/white-hoodie.png": "/sales_site_front_end/static/media/white-hoodie.d96649be6437adc0ecb8.png",
+    "static/media/ben-hands-up.jpg": "/sales_site_front_end/static/media/ben-hands-up.7aa28318e112ca7bb382.jpg",
     "static/media/Sigmar-Regular.ttf": "/sales_site_front_end/static/media/Sigmar-Regular.daeeaca2f7490cb1c50c.ttf",
+    "static/media/black-t.png": "/sales_site_front_end/static/media/black-t.a17184c42ff901e0ea03.png",
+    "static/media/white-hat.png": "/sales_site_front_end/static/media/white-hat.8c442fbd1298e7fa4105.png",
+    "static/media/black-hat.png": "/sales_site_front_end/static/media/black-hat.96d49d3e94f9661d652b.png",
+    "static/media/logo.png": "/sales_site_front_end/static/media/logo.17b7f8027785867cf91d.png",
     "static/media/BrunoAce-Regular.ttf": "/sales_site_front_end/static/media/BrunoAce-Regular.57d90f1b7b321c6768d4.ttf",
-    "static/media/handheld_cloud_server.jpg": "/sales_site_front_end/static/media/handheld_cloud_server.ac885ea3f84d72efd812.jpg",
-    "static/media/bathroom_ai.jpg": "/sales_site_front_end/static/media/bathroom_ai.d03ab02b623219a10828.jpg",
-    "static/media/demo-site.png": "/sales_site_front_end/static/media/demo-site.589012ecd4ba30126158.png",
-    "static/media/foldinator.jpg": "/sales_site_front_end/static/media/foldinator.56a580c389ac16028a01.jpg",
-    "static/media/combat_control.jpg": "/sales_site_front_end/static/media/combat_control.0bbe21a7667d2b210f2f.jpg",
-    "static/media/logo.png": "/sales_site_front_end/static/media/logo.482340219713f73f2c7d.png",
-    "static/media/wizamodingle.jpg": "/sales_site_front_end/static/media/wizamodingle.690420c98cbc0e7ed1b1.jpg",
-    "static/media/power_wheels_advanced.jpg": "/sales_site_front_end/static/media/power_wheels_advanced.62d2da5615f576575ad4.jpg",
-    "static/media/ultimate_ice_cubes.jpg": "/sales_site_front_end/static/media/ultimate_ice_cubes.cfc9282b0a5c9a8f21c2.jpg",
-    "static/media/transmogrofier.jpg": "/sales_site_front_end/static/media/transmogrofier.cbbceda0bb5ef6b5ee16.jpg",
-    "static/media/personal_stormtrooper.jpg": "/sales_site_front_end/static/media/personal_stormtrooper.9cb16ccaa6ac25d812ed.jpg",
-    "static/media/smart_glove.jpg": "/sales_site_front_end/static/media/smart_glove.e3e9a1d1b9b25fc72db8.jpg",
     "index.html": "/sales_site_front_end/index.html",
-    "main.394d175d.css.map": "/sales_site_front_end/static/css/main.394d175d.css.map",
-    "main.7e21a15d.js.map": "/sales_site_front_end/static/js/main.7e21a15d.js.map",
+    "main.579abf3f.css.map": "/sales_site_front_end/static/css/main.579abf3f.css.map",
+    "main.393e1f20.js.map": "/sales_site_front_end/static/js/main.393e1f20.js.map",
     "787.c9748194.chunk.js.map": "/sales_site_front_end/static/js/787.c9748194.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.394d175d.css",
-    "static/js/main.7e21a15d.js"
+    "static/css/main.579abf3f.css",
+    "static/js/main.393e1f20.js"
   ]
 }

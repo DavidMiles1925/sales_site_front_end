@@ -1,5 +1,6 @@
 import "./Main.css";
 import logo from "../../images/logo.png";
+import handsUp from "../../images/ben-hands-up.jpg";
 
 function Main() {
   return (
@@ -9,9 +10,13 @@ function Main() {
         <p className='main__text main__text_type_upper'>
           This is an example of what YOUR website could look like.
         </p>
-        <p className='main__text main__text_type_lower'>
-          Say the word, and you can have one just like it!
-        </p>
+        <iframe
+          className='main__video1'
+          src='https://www.youtube.com/embed/0qCEqGUYYgY'
+          title='YouTube video player'
+          allow=' fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        ></iframe>
+        <img className='main__body-picture' src={handsUp} alt='Main' />
       </div>
     </main>
   );

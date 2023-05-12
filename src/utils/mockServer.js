@@ -11,7 +11,7 @@ const database = {
       admin: "false",
       email: "user@host.com",
       password: "password",
-      name: "Frodo Baggins",
+      name: "Ben Miles",
       phone: "1234567890",
       address: {
         street: "1600 Pennsylvania Ave",

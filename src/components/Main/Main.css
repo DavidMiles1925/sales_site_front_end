@@ -19,7 +19,7 @@
 }
 
 .main__title {
-  color: #19e6da;
+  color: #ff9666;
   font-weight: bold;
   font-size: 70px;
 }
@@ -31,6 +31,17 @@
   font-weight: bold;
   font-size: 20px;
   text-align: center;
+}
+
+.main__video1 {
+  padding: 20px;
+  border: none;
+  width: 560px;
+  height: 315px;
+}
+
+.main__body-picture {
+  width: 500px;
 }
 
 @media screen and (max-width: 800px) {
@@ -47,5 +58,14 @@
 
   .main__text {
     font-size: 20px;
+  }
+
+  .main__video1 {
+    width: 300px;
+    height: 169px;
+  }
+
+  .main__body-picture {
+    width: 300px;
   }
 }

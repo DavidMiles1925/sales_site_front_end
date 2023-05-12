@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./UserDropdownMenu.css";
-import { database } from "../../utils/mockServer";
 
 const UserDropdownMenu = ({ dropdownItems, history }) => {
   const {
@@ -12,7 +11,7 @@ const UserDropdownMenu = ({ dropdownItems, history }) => {
     alternateAvatar,
   } = useContext(CurrentUserContext);
 
-  const { id, text, path, image } = activeMenuSelection;
+  const { id, image } = activeMenuSelection;
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);

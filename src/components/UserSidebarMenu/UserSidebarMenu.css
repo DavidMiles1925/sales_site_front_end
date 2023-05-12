@@ -39,3 +39,9 @@
   font-family: "Bruno-Ace";
   transition: 0.1s;
 }
+
+.user-dropdown__item:hover {
+  transform: scale(1.1);
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}

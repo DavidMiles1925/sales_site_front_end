@@ -1,11 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useEffect, useState } from "react";
 import "./UserSidebarMenu.css";
 
 function UserSidebarMenu({ history, userProfileItems }) {
-  const { currentUser } = useContext(CurrentUserContext);
-
-  const [currentSelection, setCurrentSelection] = useState(null);
   const [isOpen, setIsOpen] = useState(null);
 
   const toggleDropdown = () => setIsOpen(!isOpen);

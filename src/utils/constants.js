@@ -1,4 +1,3 @@
-const myProfileImage = require("../images/question.png");
 const myCartImage = require("../images/cart.png");
 const customerServiceImage = require("../images/question.png");
 

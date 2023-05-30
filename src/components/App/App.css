@@ -17,6 +17,7 @@
 
 @media screen and (max-width: 800px) {
   .app__profile-page-container {
+    display: flex;
     flex-direction: column;
   }
 }

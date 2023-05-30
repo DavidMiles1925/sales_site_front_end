@@ -3,7 +3,12 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import CardViewModal from "../CardViewModal/CardViewModal";
 import "./ProductViewModal.css";
 
-function ProductViewModal({ card, addToCart, closeActiveModal }) {
+function ProductViewModal({
+  card,
+  handleAddToCart,
+  closeActiveModal,
+  handleRemoveFromCart,
+}) {
   const { currentUser } = useContext(CurrentUserContext);
   const { image, name, price, description } = card;
   const newImage = `data:image/png;base64, ${image}`;
@@ -14,6 +19,15 @@ function ProductViewModal({ card, addToCart, closeActiveModal }) {
     return isInCart
       ? "card__cart-button card__cart-button_type_in-cart"
       : "card__cart-button";
+  }
+
+  function handleCartClick(e) {
+    e.stopPropagation();
+    if (isInCart) {
+      handleRemoveFromCart(card._id);
+    } else {
+      handleAddToCart(card._id);
+    }
   }
 
   return (
@@ -29,9 +43,9 @@ function ProductViewModal({ card, addToCart, closeActiveModal }) {
           <button
             className={setCartClassNames()}
             alt='card__cart-button'
-            onClick={addToCart}
+            onClick={handleCartClick}
           >
-            {isInCart ? "In Cart" : "Add to Cart"}
+            {isInCart ? "Remove from Cart" : "Add to Cart"}
           </button>
         </div>
       </CardViewModal>

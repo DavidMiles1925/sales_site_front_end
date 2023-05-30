@@ -5,7 +5,12 @@ import CardsSection from "../CardsSection/CardsSection";
 import SideBarMenu from "../SideBarMenu/SideBarMenu";
 import "./ProductsPage.css";
 
-function ProductsPage({ productList, handleCardClick, addToCart }) {
+function ProductsPage({
+  productList,
+  handleCardClick,
+  handleAddToCart,
+  handleRemoveFromCart,
+}) {
   const [currentCategory, setCurrentCategory] = useState("all");
 
   const dropdownOptions = {
@@ -23,7 +28,8 @@ function ProductsPage({ productList, handleCardClick, addToCart }) {
         <CardsSection
           cards={productList}
           handleCardClick={handleCardClick}
-          addToCart={addToCart}
+          handleAddToCart={handleAddToCart}
+          handleRemoveFromCart={handleRemoveFromCart}
         />
       </div>
     </FilterContext.Provider>

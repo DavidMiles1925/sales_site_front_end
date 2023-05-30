@@ -6,3 +6,10 @@
 .user-profile__sidebar-container {
   display: flex;
 }
+
+@media screen and (max-width: 800px) {
+  .user-profile {
+    min-height: 0px;
+    max-height: 200px;
+  }
+}

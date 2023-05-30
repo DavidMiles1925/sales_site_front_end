@@ -5,7 +5,14 @@ import { errorMessageHandler } from "../../contexts/ValidationContext";
 
 // ********** API **********
 import { database } from "../../utils/mockServer";
-import { signup, signin, checkToken } from "../../utils/auth";
+import {
+  signup,
+  signin,
+  checkToken,
+  updateUser,
+  addToCart,
+  removeFromCart,
+} from "../../utils/auth";
 
 // ********** Contexts **********
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -25,6 +32,7 @@ import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
 import { userDropdown } from "../../utils/constants";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import UserUpdateProfileModal from "../UserUpdateProfileModal/UserUpdateProfileModal";
 import ProductViewModal from "../ProductViewModal/ProductViewModal";
 
 // ********** Styles **********
@@ -76,23 +84,11 @@ const App = () => {
     setActiveCard(card);
   }
 
-  // ********** Submission Handlers **********
-  /*
-  function handleLoginSubmit(user) {
-    setIsLoading(true);
-    if (user.email === "user@host.com" && user.password === "password") {
-      const user = database.users[0];
-      setCurrentUser(user);
-      setAlternateAvatar(getUserFirstLetter(user.name));
-      setIsLoggedIn(true);
-      setActiveMenuSelection(userDropdown[0]);
-      closeModal();
-    } else {
-      setErrorDisplay({ value: true, message: "Invalid email or password." });
-    }
-    setIsLoading(false);
-  }*/
+  function selectUpdate() {
+    setActiveModal("update");
+  }
 
+  // ********** Submission Handlers **********
   function handleLoginSubmit({ email, password }) {
     setIsLoading(true);
 
@@ -104,10 +100,12 @@ const App = () => {
 
         checkToken(res.token).then((res) => {
           setCurrentUser(JSON.parse(JSON.stringify(res.data)));
-          setAlternateAvatar(getUserFirstLetter(res.data.name));
           setIsLoggedIn(true);
+          setAlternateAvatar(getUserFirstLetter(res.data.name));
+          setActiveMenuSelection(userDropdown[0]);
           history.push("/");
         });
+
         closeModal();
       })
       .catch((err) => {
@@ -136,8 +134,26 @@ const App = () => {
       });
   }
 
-  function handleUpdateSubmit() {
-    console.log("submit");
+  function handleUpdateSubmit(values) {
+    setIsLoading(true);
+
+    const { name, phone, street, apt, city, state, zip } = values;
+
+    const address = { street, apt, city, state, zip };
+
+    const token = localStorage.getItem("token");
+
+    updateUser({ name, phone, address, token })
+      .then((res) => {
+        setCurrentUser(res.data);
+        closeModal();
+      })
+      .catch((err) => {
+        handleModalErrorDisplay(true, errorMessageHandler(err));
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   function handleLogOut() {
@@ -157,14 +173,30 @@ const App = () => {
     setIsAdmin(!isAdmin);
   }
 
-  function addToCart(e) {
-    e.stopPropagation();
+  function handleAddToCart(_id) {
     if (isLoggedIn) {
-      closeModal();
-      history.push("building");
+      const token = localStorage.getItem("token");
+      addToCart(_id, token)
+        .then((user) => {
+          setCurrentUser(user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       setActiveModal("signup");
     }
+  }
+
+  function handleRemoveFromCart(_id) {
+    const token = localStorage.getItem("token");
+    removeFromCart(_id, token)
+      .then((user) => {
+        setCurrentUser(user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   // ********** Modal Tools **********
@@ -207,6 +239,7 @@ const App = () => {
           setCurrentUser(JSON.parse(JSON.stringify(res.data)));
           setAlternateAvatar(getUserFirstLetter(res.data.name));
           setIsLoggedIn(true);
+          history.push("/");
         })
         .catch((err) => {
           console.log("No token found ", err.message);
@@ -216,6 +249,10 @@ const App = () => {
   }
 
   // ********** Listeners **********
+  useEffect(() => {
+    setCurrentUser({ cart: [] });
+  }, []);
+
   useEffect(() => {
     setActiveMenuSelection(userDropdown[0]);
   }, []);
@@ -238,10 +275,6 @@ const App = () => {
 
   useEffect(() => {
     checkAccess();
-  }, []);
-
-  useEffect(() => {
-    setCurrentUser({ cart: [] });
   }, []);
 
   useEffect(() => {
@@ -302,7 +335,8 @@ const App = () => {
             <ProductsPage
               productList={productList}
               handleCardClick={handleCardClick}
-              addToCart={addToCart}
+              handleAddToCart={handleAddToCart}
+              handleRemoveFromCart={handleRemoveFromCart}
             />
           </Route>
 
@@ -314,13 +348,14 @@ const App = () => {
                   <StillBuilding />
                 </Route>
                 <Route exact path='/userprofile/userinfo'>
-                  <UserInformationPage />
+                  <UserInformationPage setActiveModal={setActiveModal} />
                 </Route>
                 <Route exact path='/userprofile/usercart'>
                   <ShoppingCart
                     productList={productList}
                     handleCardClick={handleCardClick}
-                    addToCart={addToCart}
+                    handleAddToCart={handleAddToCart}
+                    handleRemoveFromCart={handleRemoveFromCart}
                   />
                 </Route>
               </Switch>
@@ -361,10 +396,26 @@ const App = () => {
             <RegisterModal isLoading={isLoading} />
           </ValidationContext.Provider>
         )}
+        {activeModal === "update" && (
+          <ValidationContext.Provider
+            value={{
+              errorDisplay,
+              disableButton,
+              handleUpdateSubmit,
+              closeActiveModal,
+              setActiveModal,
+              handleModalErrorDisplay,
+              setDisableButton,
+            }}
+          >
+            <UserUpdateProfileModal isLoading={isLoading} />
+          </ValidationContext.Provider>
+        )}
         {activeModal === "productpreview" && (
           <ProductViewModal
             card={activeCard}
-            addToCart={addToCart}
+            handleAddToCart={handleAddToCart}
+            handleRemoveFromCart={handleRemoveFromCart}
             closeActiveModal={closeActiveModal}
           />
         )}

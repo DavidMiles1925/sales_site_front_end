@@ -3,7 +3,12 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProductCard from "../ProductCard/ProductCard";
 import "./ShoppingCart.css";
 
-function ShoppingCart({ productList, handleCardClick, addToCart }) {
+function ShoppingCart({
+  productList,
+  handleCardClick,
+  handleAddToCart,
+  handleRemoveFromCart,
+}) {
   const { currentUser } = useContext(CurrentUserContext);
 
   const items = productList.filter((product) =>
@@ -21,7 +26,8 @@ function ShoppingCart({ productList, handleCardClick, addToCart }) {
               key={cartItem._id}
               card={cartItem}
               handleCardClick={handleCardClick}
-              addToCart={addToCart}
+              handleAddToCart={handleAddToCart}
+              handleRemoveFromCart={handleRemoveFromCart}
             />
           ))}
         </div>

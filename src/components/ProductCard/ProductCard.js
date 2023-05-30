@@ -2,7 +2,12 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./ProjectCard.css";
 
-function ProductCard({ card, handleCardClick, addToCart }) {
+function ProductCard({
+  card,
+  handleCardClick,
+  handleAddToCart,
+  handleRemoveFromCart,
+}) {
   const { currentUser } = useContext(CurrentUserContext);
   const { image, price, name } = card;
   const newImage = `data:image/png;base64, ${image}`;
@@ -13,6 +18,15 @@ function ProductCard({ card, handleCardClick, addToCart }) {
     return isInCart
       ? "card__cart-button card__cart-button_type_in-cart"
       : "card__cart-button";
+  }
+
+  function handleCartClick(e) {
+    e.stopPropagation();
+    if (isInCart) {
+      handleRemoveFromCart(card._id);
+    } else {
+      handleAddToCart(card._id);
+    }
   }
 
   return (
@@ -35,9 +49,9 @@ function ProductCard({ card, handleCardClick, addToCart }) {
         <button
           className={setCartClassNames()}
           alt='card__cart-button'
-          onClick={addToCart}
+          onClick={handleCartClick}
         >
-          {!isInCart ? "Add to Cart" : "Remove From Cart"}
+          {!isInCart ? "Add to Cart" : "Remove from Cart"}
         </button>
       </div>
     </li>

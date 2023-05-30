@@ -18,7 +18,7 @@ const productCatalog = [
 ];
 
 const userDropdown = [
-  { text: "My Profile", path: "/userprofile", image: "user" },
+  { text: "My Profile", path: "/userprofile/userinfo", image: "user" },
   { text: "My Cart", path: "/userprofile/usercart", image: myCartImage },
   {
     text: "Customer Service",

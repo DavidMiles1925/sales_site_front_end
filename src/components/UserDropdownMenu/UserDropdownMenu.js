@@ -36,15 +36,7 @@ const UserDropdownMenu = ({ dropdownItems, history }) => {
         <button className='dropdown__toggle' onClick={handleTopClick} key={id}>
           {currentUser.name}
         </button>
-        {activeMenuSelection.image !== "user" ? (
-          <img
-            className='dropdown__image'
-            src={image}
-            alt='activeMenuSelection'
-          />
-        ) : (
-          <p className='dropdown__default-avatar'>{alternateAvatar}</p>
-        )}
+        <p className='dropdown__default-avatar'>{alternateAvatar}</p>
       </div>
       {isOpen && (
         <div className='dropdown__menu'>

@@ -25,7 +25,7 @@
 
 `handleLoginSubmit()` - Function:  
 `handleSignUpSubmit()` - Function:  
-`addToCart()` - Function: Adds/Removes a product from the `currentUser`'s `user.cart` array.
+`handleAddToCart()` - Function: Adds/Removes a product from the `currentUser`'s `user.cart` array.
 
 **Modal Logic**
 

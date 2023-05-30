@@ -7,10 +7,13 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function UserUpdateProfileModal({ isLoading }) {
   const { currentUser } = useContext(CurrentUserContext);
-  const { setDisableButton, handleUpdateSubmit } =
+  const { setDisableButton, handleUpdateSubmit, closeActiveModal } =
     useContext(ValidationContext);
   const { values, errors, isValid, handleChange, resetForm, setValues } =
     useFormAndValidation();
+
+  const { name, phone, address } = currentUser;
+  const { street, apt, city, state, zip } = address;
 
   function formatPhoneNumber(phoneNumberString) {
     const cleaned = ("" + phoneNumberString).replace(/\D/g, "");
@@ -25,27 +28,27 @@ function UserUpdateProfileModal({ isLoading }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    handleUpdateSubmit();
+    handleUpdateSubmit(values);
   }
 
   useEffect(() => {
-    setValues(currentUser);
-  }, [currentUser, setValues]);
-
-  useEffect(() => {
-    resetForm();
-  }, [resetForm]);
+    setValues({ name, phone, address, street, apt, city, state, zip });
+  }, [name, phone, address, street, apt, city, state, zip, setValues]);
 
   useEffect(() => {
     setDisableButton(!isValid);
   }, [values, isValid, setDisableButton]);
   return (
     <ModalWithForm
-      title='Sign Up'
-      name='signup'
-      buttonText={isLoading ? "Saving" : "Sign Up"}
+      title='Update Profile'
+      name='update'
+      buttonText={isLoading ? "Saving..." : "Save"}
       handleSubmit={handleSubmit}
-      alternateButton={{ value: true, text: "or Log In", path: "login" }}
+      alternateButton={{
+        value: true,
+        text: "or Cancel",
+        path: "",
+      }}
     >
       <label className='modal__label'>
         Name <span className='modal__optional'>(optional)</span>
@@ -72,7 +75,7 @@ function UserUpdateProfileModal({ isLoading }) {
         name='phone'
         id='phone'
         minLength={10}
-        maxLength={15}
+        maxLength={11}
         value={values.phone || ""}
         onChange={handlePhoneChange}
       />
@@ -84,88 +87,78 @@ function UserUpdateProfileModal({ isLoading }) {
       </span>
 
       <label className='modal__label'>
-        Phone Number <span className='modal__optional'>(optional)</span>
+        Street <span className='modal__optional'>(optional)</span>
       </label>
       <input
         className='modal__input modal__input_type_text'
         type='text'
         name='street'
         id='street'
-        minLength={10}
-        maxLength={15}
-        value={values.address.street || ""}
+        value={values.street || ""}
         onChange={handleChange}
       />
       <span className='modal__error' id='street-error'>
-        {errors.address.street}
+        {errors.street}
       </span>
 
       <label className='modal__label'>
-        Phone Number <span className='modal__optional'>(optional)</span>
+        Apt/Suite <span className='modal__optional'>(optional)</span>
       </label>
       <input
         className='modal__input modal__input_type_text'
         type='text'
         name='apt'
         id='apt'
-        minLength={10}
-        maxLength={15}
-        value={values.address.apt || ""}
+        value={values.apt || ""}
         onChange={handleChange}
       />
       <span className='modal__error' id='apt-error'>
-        {errors.address.apt}
+        {errors.apt}
       </span>
 
       <label className='modal__label'>
-        Phone Number <span className='modal__optional'>(optional)</span>
+        City <span className='modal__optional'>(optional)</span>
       </label>
       <input
         className='modal__input modal__input_type_text'
         type='text'
         name='city'
         id='city'
-        minLength={10}
-        maxLength={15}
-        value={values.address.city || ""}
+        value={values.city || ""}
         onChange={handleChange}
       />
       <span className='modal__error' id='city-error'>
-        {errors.address.city}
+        {errors.city}
       </span>
 
       <label className='modal__label'>
-        Phone Number <span className='modal__optional'>(optional)</span>
+        State <span className='modal__optional'>(optional)</span>
       </label>
       <input
         className='modal__input modal__input_type_text'
         type='text'
         name='state'
         id='state'
-        minLength={10}
-        maxLength={15}
-        value={values.address.state || ""}
+        value={values.state || ""}
         onChange={handleChange}
       />
       <span className='modal__error' id='state-error'>
-        {errors.address.state}
+        {errors.state}
       </span>
 
       <label className='modal__label'>
-        Phone Number <span className='modal__optional'>(optional)</span>
+        Zip Code <span className='modal__optional'>(optional)</span>
       </label>
       <input
         className='modal__input modal__input_type_text'
         type='text'
         name='zip'
         id='zip'
-        minLength={10}
-        maxLength={15}
-        value={values.address.zip || ""}
+        value={values.zip || ""}
         onChange={handleChange}
       />
       <span className='modal__error' id='zip-error'>
-        {errors.address.zip}
+        {errors.zip}
       </span>
     </ModalWithForm>
   );

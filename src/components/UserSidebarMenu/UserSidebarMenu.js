@@ -14,8 +14,8 @@ function UserSidebarMenu({ history, userProfileItems }) {
   }
 
   function handleMenuClick(item) {
-    console.log(item.text);
     history.push(item.path);
+    handleResize();
   }
 
   function handleResize() {
@@ -60,9 +60,3 @@ function UserSidebarMenu({ history, userProfileItems }) {
 }
 
 export default UserSidebarMenu;
-
-/*
-Your Information
-Your Orders
-Login and Security
-*/

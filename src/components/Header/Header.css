@@ -91,6 +91,9 @@
     flex-direction: column;
     align-items: center;
   }
+  .header__link {
+    margin: 10px 0 10px 12px;
+  }
   .header__link-main {
     margin: 0 0 10px 8px;
   }

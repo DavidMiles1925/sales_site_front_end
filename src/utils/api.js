@@ -6,7 +6,6 @@ const processServerResponse = (res) => {
   if (res.ok) {
     return res.json();
   }
-  console.log(res);
   return Promise.reject(`Error: ${res.status}`);
 };
 

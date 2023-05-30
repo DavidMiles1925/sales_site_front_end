@@ -48,4 +48,26 @@ function updateUser(data) {
   });
 }
 
-export { signup, signin, checkToken, updateUser };
+function addToCart(_id, token) {
+  return request(`${baseUrl}/users/me`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "Application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ _id }),
+  });
+}
+
+function removeFromCart(_id, token) {
+  return request(`${baseUrl}/users/me`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "Application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ _id }),
+  });
+}
+
+export { signup, signin, checkToken, updateUser, addToCart, removeFromCart };

@@ -1,3 +1,50 @@
+.userinfo {
+  display: flex;
+  flex-direction: column;
+}
+
 .userinfo__item-wrapper {
   display: flex;
+  font-size: 14px;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.userinfo__label {
+  margin: 0;
+  padding: 8px;
+  font-weight: bold;
+  min-width: 55px;
+}
+
+.userinfo__label_type_header {
+  padding-top: 24px;
+  font-size: 18px;
+}
+
+.userinfo__label_type_zip {
+  min-width: 30px;
+}
+
+.userinfo__info {
+  margin: 8px 0;
+  padding: 0 10px;
+}
+
+.userinfo__edit-button {
+  margin: 14px 8px;
+  padding: 6px;
+  border: solid 2 px black;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+  font-family: "Bruno-Ace";
+  transition: 0.1s;
+  font-size: 12px;
+}
+
+.userinfo__edit-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  opacity: 0.6;
 }

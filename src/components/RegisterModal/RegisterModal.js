@@ -30,7 +30,7 @@ function RegisterModal({ isLoading }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    handleSignUpSubmit();
+    handleSignUpSubmit(values);
   }
 
   useEffect(() => {

@@ -20,7 +20,7 @@ const database = {
         state: "Florida",
         zip: "80085",
       },
-      cart: ["002", "003"],
+      cart: [],
     },
     {
       _id: "002",

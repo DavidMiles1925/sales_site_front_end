@@ -1,9 +1,11 @@
 // ********** Tools **********
 import { Route, Switch, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { errorMessageHandler } from "../../contexts/ValidationContext";
 
 // ********** API **********
 import { database } from "../../utils/mockServer";
+import { signup, signin, checkToken } from "../../utils/auth";
 
 // ********** Contexts **********
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -29,6 +31,8 @@ import ProductViewModal from "../ProductViewModal/ProductViewModal";
 import "../../fonts/fonts.css";
 import "./App.css";
 import UserProfilePage from "../UserProfilePage/UserProfilePage";
+import { getProducts } from "../../utils/api";
+import UserInformationPage from "../UserInformationPage/UserInformationPage";
 
 const App = () => {
   // ********** Developer Tools **********
@@ -73,6 +77,7 @@ const App = () => {
   }
 
   // ********** Submission Handlers **********
+  /*
   function handleLoginSubmit(user) {
     setIsLoading(true);
     if (user.email === "user@host.com" && user.password === "password") {
@@ -86,14 +91,59 @@ const App = () => {
       setErrorDisplay({ value: true, message: "Invalid email or password." });
     }
     setIsLoading(false);
+  }*/
+
+  function handleLoginSubmit({ email, password }) {
+    setIsLoading(true);
+
+    const user = { email, password };
+
+    signin(user)
+      .then((res) => {
+        localStorage.setItem("token", res.token);
+
+        checkToken(res.token).then((res) => {
+          setCurrentUser(JSON.parse(JSON.stringify(res.data)));
+          setAlternateAvatar(getUserFirstLetter(res.data.name));
+          setIsLoggedIn(true);
+          history.push("/");
+        });
+        closeModal();
+      })
+      .catch((err) => {
+        handleModalErrorDisplay(true, errorMessageHandler(err));
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
-  function handleSignUpSubmit() {
-    history.push("/building");
-    closeModal();
+  function handleSignUpSubmit(values) {
+    setIsLoading(true);
+
+    const { email, password } = values;
+
+    signup(values)
+      .then((res) => {
+        handleLoginSubmit({ email, password });
+        closeModal();
+      })
+      .catch((err) => {
+        handleModalErrorDisplay(true, errorMessageHandler(err));
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
+
+  function handleUpdateSubmit() {
+    console.log("submit");
   }
 
   function handleLogOut() {
+    localStorage.removeItem("token");
+    setCurrentUser({});
+    setAlternateAvatar("");
     setIsLoggedIn(false);
     history.push("/");
   }
@@ -139,28 +189,59 @@ const App = () => {
   }
 
   // ********** Authentication **********
-  /*function getLocalToken() {
+  function getLocalToken() {
     try {
       const jwt = localStorage.getItem("token");
       return jwt;
     } catch {
       return null;
     }
-  }*/
+  }
+
+  function checkAccess() {
+    const jwt = getLocalToken();
+
+    if (jwt) {
+      checkToken(jwt)
+        .then((res) => {
+          setCurrentUser(JSON.parse(JSON.stringify(res.data)));
+          setAlternateAvatar(getUserFirstLetter(res.data.name));
+          setIsLoggedIn(true);
+        })
+        .catch((err) => {
+          console.log("No token found ", err.message);
+          handleModalErrorDisplay(true, errorMessageHandler(err));
+        });
+    }
+  }
 
   // ********** Listeners **********
   useEffect(() => {
     setActiveMenuSelection(userDropdown[0]);
   }, []);
 
+  /*
   useEffect(() => {
-    setCurrentUser({
-      cart: [],
-    });
+    setProductList(database.products);
+  }, []);
+*/
+
+  useEffect(() => {
+    getProducts()
+      .then((products) => {
+        setProductList(products);
+      })
+      .catch((err) => {
+        console.log("error occured");
+      });
   }, []);
 
   useEffect(() => {
-    setProductList(database.products);
+    checkAccess();
+  }, []);
+
+  useEffect(() => {
+    setCurrentUser({ cart: [] });
   }, []);
 
   useEffect(() => {
@@ -231,6 +312,9 @@ const App = () => {
               <Switch>
                 <Route exact path='/userprofile/building'>
                   <StillBuilding />
+                </Route>
+                <Route exact path='/userprofile/userinfo'>
+                  <UserInformationPage />
                 </Route>
                 <Route exact path='/userprofile/usercart'>
                   <ShoppingCart

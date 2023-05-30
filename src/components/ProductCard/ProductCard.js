@@ -4,6 +4,8 @@ import "./ProjectCard.css";
 
 function ProductCard({ card, handleCardClick, addToCart }) {
   const { currentUser } = useContext(CurrentUserContext);
+  const { image, price, name } = card;
+  const newImage = `data:image/png;base64, ${image}`;
 
   const isInCart = currentUser.cart.some((item) => item === card._id);
 
@@ -21,12 +23,12 @@ function ProductCard({ card, handleCardClick, addToCart }) {
       }}
     >
       <div className='card__image-container'>
-        <img className='card__image' src={card.image} alt='Product' />
+        <img className='card__image' src={newImage} alt='Product' />
       </div>
       <div className='card__header'>
         <div className='card__text-container'>
-          <p className='card__text card__price'>{`$${card.price}`}</p>
-          <p className='card__text card__name'>{card.name}</p>
+          <p className='card__text card__price'>{`$${price}`}</p>
+          <p className='card__text card__name'>{name}</p>
         </div>
       </div>
       <div className='card__cart-button-container'>

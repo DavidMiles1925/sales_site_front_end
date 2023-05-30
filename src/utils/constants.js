@@ -30,7 +30,7 @@ const userDropdown = [
 
 const userSidebar = [
   { text: "Your Cart", path: "/userprofile/usercart" },
-  { text: "Your Information", path: "/userprofile/building" },
+  { text: "Your Information", path: "/userprofile/userinfo" },
   {
     text: "Your Orders",
     path: "/userprofile/building",

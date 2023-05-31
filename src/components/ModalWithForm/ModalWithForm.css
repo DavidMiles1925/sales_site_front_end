@@ -18,7 +18,6 @@
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  font-family: "Cabinet-Grotesk";
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
@@ -33,7 +32,7 @@
 }
 
 .modal__title {
-  font-family: "Bruno-Ace";
+  font-family: "Bruno-Ace", Arial, sans-serif;
   font-size: 24px;
   line-height: 28px;
 }
@@ -57,7 +56,7 @@
 .modal__label {
   margin-top: 24px;
   margin-bottom: 8px;
-  font-family: "Bruno-Ace";
+  font-family: "Bruno-Ace", Arial, sans-serif;
 }
 
 .modal__label_type_radio {
@@ -65,7 +64,7 @@
 }
 
 .modal__input {
-  font-family: "Bruno-Ace";
+  font-family: "Bruno-Ace", Arial, sans-serif;
   font-size: 16px;
   line-height: 20px;
   width: 440px;
@@ -94,7 +93,7 @@
   height: 36px;
   padding: 8px, 16px, 8px, 16px;
   margin: 24px 0px;
-  font-family: "Bruno-Ace";
+  font-family: "Bruno-Ace", Arial, sans-serif;
 }
 
 .modal__buton-container {
@@ -119,7 +118,7 @@
 .modal__button-modifier {
   background-color: transparent;
   border: none;
-  font-family: "Bruno-Ace";
+  font-family: "Bruno-Ace", Arial, sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
@@ -132,6 +131,7 @@
 }
 
 .modal__error {
+  max-width: 400px;
   font-size: 12px;
   line-height: 15px;
   color: rgba(255, 0, 0, 1);
@@ -144,7 +144,7 @@
 
 .modal__format {
   margin: 2px 0 0 0;
-  font-family: "Bruno-Ace";
+  font-family: "Bruno-Ace", Arial, sans-serif;
 }
 
 @media screen and (max-width: 560px) {

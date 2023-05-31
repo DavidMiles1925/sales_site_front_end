@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Bruno-Ace";
+  font-family: "Bruno-Ace", Arial, sans-serif;
   font-style: normal;
   color: black;
 }

@@ -59,7 +59,7 @@
   border-radius: 4px;
   background-color: black;
   color: white;
-  font-family: "Bruno-Ace";
+  font-family: "Bruno-Ace", Arial, sans-serif;
   transition: 0.1s;
 }
 

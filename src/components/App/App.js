@@ -19,7 +19,7 @@ import {
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { ValidationContext } from "../../contexts/ValidationContext";
 
-// ********** Page Components **********
+// ********** Page Components **********s
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import AboutUs from "../AboutUs/AboutUs";

@@ -13,7 +13,7 @@ const contactInfo = {
 
 const productCatalog = [
   { text: "Hats", path: "hats" },
-  { text: "T-Shirts", path: "tshirts" },
+  { text: "T-Shirts", path: "shirts" },
   { text: "Hoodies", path: "hoodies" },
 ];
 
@@ -25,7 +25,7 @@ const userDropdown = [
     path: "/building",
     image: customerServiceImage,
   },
-  { text: "Log Out", path: "logout", image: "door" },
+  { text: "Log Out", path: "", image: "door" },
 ];
 
 const userSidebar = [

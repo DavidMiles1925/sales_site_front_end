@@ -1,0 +1,15 @@
+.modal__label_type_update {
+  margin-top: 6px;
+  margin-bottom: 4px;
+  font-family: "Bruno-Ace";
+}
+
+.modal__input {
+  font-family: "Bruno-Ace";
+  font-size: 14px;
+  line-height: 20px;
+  width: 440px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}

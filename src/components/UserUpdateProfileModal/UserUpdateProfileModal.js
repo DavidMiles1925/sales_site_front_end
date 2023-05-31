@@ -4,6 +4,7 @@ import { useFormAndValidation } from "../../utils/useFormAndValidation";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "../ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import "./UserUpdateProfileModal.css";
 
 function UserUpdateProfileModal({ isLoading }) {
   const { currentUser } = useContext(CurrentUserContext);
@@ -50,7 +51,7 @@ function UserUpdateProfileModal({ isLoading }) {
         path: "",
       }}
     >
-      <label className='modal__label'>
+      <label className='modal__label_type_update'>
         Name <span className='modal__optional'>(optional)</span>
       </label>
       <input
@@ -58,7 +59,7 @@ function UserUpdateProfileModal({ isLoading }) {
         type='text'
         name='name'
         id='name'
-        maxLength='30'
+        maxLength={30}
         value={values.name || ""}
         onChange={handleChange}
       />
@@ -66,7 +67,7 @@ function UserUpdateProfileModal({ isLoading }) {
         {errors.name}
       </span>
 
-      <label className='modal__label'>
+      <label className='modal__label modal__label_type_update'>
         Phone Number <span className='modal__optional'>(optional)</span>
       </label>
       <input
@@ -86,7 +87,7 @@ function UserUpdateProfileModal({ isLoading }) {
         {errors.phone}
       </span>
 
-      <label className='modal__label'>
+      <label className='modal__label modal__label_type_update'>
         Street <span className='modal__optional'>(optional)</span>
       </label>
       <input
@@ -101,7 +102,7 @@ function UserUpdateProfileModal({ isLoading }) {
         {errors.street}
       </span>
 
-      <label className='modal__label'>
+      <label className='modal__label modal__label_type_update'>
         Apt/Suite <span className='modal__optional'>(optional)</span>
       </label>
       <input
@@ -116,7 +117,7 @@ function UserUpdateProfileModal({ isLoading }) {
         {errors.apt}
       </span>
 
-      <label className='modal__label'>
+      <label className='modal__label modal__label_type_update'>
         City <span className='modal__optional'>(optional)</span>
       </label>
       <input
@@ -131,7 +132,7 @@ function UserUpdateProfileModal({ isLoading }) {
         {errors.city}
       </span>
 
-      <label className='modal__label'>
+      <label className='modal__label modal__label_type_update'>
         State <span className='modal__optional'>(optional)</span>
       </label>
       <input
@@ -146,7 +147,7 @@ function UserUpdateProfileModal({ isLoading }) {
         {errors.state}
       </span>
 
-      <label className='modal__label'>
+      <label className='modal__label modal__label_type_update'>
         Zip Code <span className='modal__optional'>(optional)</span>
       </label>
       <input

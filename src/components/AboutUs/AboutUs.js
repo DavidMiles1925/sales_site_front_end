@@ -10,22 +10,25 @@ function AboutUs() {
         <div className='about-us__section-container'>
           <h3 className='about-us__section-title'>What we do:</h3>
           <p className='about-us__section-text'>
-            We're not sure yet, but if you have any ideas feel free to let us
-            know!
+            We check out the latest games and bring you tips, tricks, and ideas
+            for those players who maybe unable to use the controller the same
+            way as other players.
           </p>
         </div>
         <div className='about-us__section-container'>
           <h3 className='about-us__section-title'>Where we came from:</h3>
           <p className='about-us__section-text'>
-            On day we thought, "Hmm, it would be cool to sell something online,
-            but what could we sell? Oh well, let's just build a website and then
-            figure it out."
+            We are from a Olathe, a suburb of Kansas City. Ben was born with
+            cerebral palsy, but that has never stopped him tackling a video
+            game! We love to play together, and we decided we would share our
+            fun times with the world.
           </p>
         </div>
         <div className='about-us__section-container'>
           <h3 className='about-us__section-title'>Our pledge to you:</h3>
           <p className='about-us__section-text'>
-            Someday we will figure out what the heck we're going to do!
+            Our goal is to bring you high quality entertainment, while providing
+            you with the best adaptive tips for multi-abled players.
           </p>
         </div>
       </div>

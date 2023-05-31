@@ -65,6 +65,7 @@
 }
 
 .modal__input {
+  font-family: "Bruno-Ace";
   font-size: 16px;
   line-height: 20px;
   width: 440px;
@@ -147,8 +148,11 @@
 }
 
 @media screen and (max-width: 560px) {
+  .modal__window {
+    max-width: 280px;
+  }
   .modal__input {
-    width: 250px;
+    max-width: 250px;
   }
 
   .modal__input_type_radio {

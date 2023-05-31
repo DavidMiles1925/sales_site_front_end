@@ -7,12 +7,15 @@ function ProductCard({
   handleCardClick,
   handleAddToCart,
   handleRemoveFromCart,
+  isLoggedIn,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
   const { image, price, name } = card;
   const newImage = `data:image/png;base64, ${image}`;
 
-  const isInCart = currentUser.cart.some((item) => item === card._id);
+  const isInCart = currentUser
+    ? currentUser.cart.some((item) => item === card._id)
+    : false;
 
   function setCartClassNames() {
     return isInCart

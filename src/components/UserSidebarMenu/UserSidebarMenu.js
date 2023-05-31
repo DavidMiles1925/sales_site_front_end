@@ -10,7 +10,7 @@ function UserSidebarMenu({ history, userProfileItems }) {
     if (window.innerWidth < 960) {
       toggleDropdown();
     }
-    history.push("./userprofile");
+    history.push("/userprofile/userinfo");
   }
 
   function handleMenuClick(item) {

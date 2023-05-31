@@ -21,7 +21,7 @@ const UserDropdownMenu = ({ dropdownItems, history }) => {
   }
 
   function handleLinkClick(item) {
-    if (item.path === "logout") {
+    if (item.path === "") {
       handleLogOut();
     }
     toggleDropdown();

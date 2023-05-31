@@ -49,7 +49,7 @@ function updateUser(data) {
 }
 
 function addToCart(_id, token) {
-  return request(`${baseUrl}/users/me`, {
+  return request(`${baseUrl}/users/${_id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "Application/json",
@@ -60,7 +60,7 @@ function addToCart(_id, token) {
 }
 
 function removeFromCart(_id, token) {
-  return request(`${baseUrl}/users/me`, {
+  return request(`${baseUrl}/users/${_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "Application/json",

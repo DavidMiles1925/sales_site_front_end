@@ -8,6 +8,7 @@ function ShoppingCart({
   handleCardClick,
   handleAddToCart,
   handleRemoveFromCart,
+  history,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
 
@@ -18,7 +19,18 @@ function ShoppingCart({
   return (
     <div className='cart'>
       <div className='cart-container'>
-        <h2 className='cart__title'>Cart</h2>
+        <div className='cart__title-container'>
+          <h2 className='cart__title'>Cart</h2>
+          <button
+            className='cart__submit'
+            type='submit'
+            onClick={() => {
+              history.push("/userprofile/building");
+            }}
+          >
+            Checkout
+          </button>
+        </div>
         <div className='cart__divider' />
         <div className='cart__item-section'>
           {items.map((cartItem) => (

@@ -11,7 +11,7 @@
 .app__profile-page-container {
   display: grid;
   grid-template-columns: 180px auto;
-  width: 100%;
+  width: 95%;
   max-width: 1440px;
 }
 

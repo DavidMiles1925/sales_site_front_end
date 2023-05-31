@@ -2,6 +2,7 @@
 import { Route, Switch, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { errorMessageHandler } from "../../contexts/ValidationContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 // ********** API **********
 import { database } from "../../utils/mockServer";
@@ -158,7 +159,7 @@ const App = () => {
 
   function handleLogOut() {
     localStorage.removeItem("token");
-    setCurrentUser({});
+    setCurrentUser();
     setAlternateAvatar("");
     setIsLoggedIn(false);
     history.push("/");
@@ -184,7 +185,7 @@ const App = () => {
           console.log(err);
         });
     } else {
-      setActiveModal("signup");
+      setActiveModal("login");
     }
   }
 
@@ -340,27 +341,28 @@ const App = () => {
             />
           </Route>
 
-          <Route path='/userprofile'>
+          <ProtectedRoute path='/userprofile'>
             <div className='app__profile-page-container'>
               <UserProfilePage history={history} />
               <Switch>
-                <Route exact path='/userprofile/building'>
+                <ProtectedRoute exact path='/userprofile/building'>
                   <StillBuilding />
-                </Route>
-                <Route exact path='/userprofile/userinfo'>
+                </ProtectedRoute>
+                <ProtectedRoute exact path='/userprofile/userinfo'>
                   <UserInformationPage setActiveModal={setActiveModal} />
-                </Route>
-                <Route exact path='/userprofile/usercart'>
+                </ProtectedRoute>
+                <ProtectedRoute exact path='/userprofile/usercart'>
                   <ShoppingCart
                     productList={productList}
                     handleCardClick={handleCardClick}
                     handleAddToCart={handleAddToCart}
                     handleRemoveFromCart={handleRemoveFromCart}
+                    history={history}
                   />
-                </Route>
+                </ProtectedRoute>
               </Switch>
             </div>
-          </Route>
+          </ProtectedRoute>
           <Route path='/'>
             <Main />
           </Route>

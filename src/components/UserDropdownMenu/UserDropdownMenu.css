@@ -85,4 +85,8 @@
   .dropdown__toggle {
     padding-top: 8px;
   }
+
+  .dropdown__default-avatar {
+    margin: 14px 0 10px 0;
+  }
 }

@@ -26,9 +26,9 @@ function ProductCard({
   function handleCartClick(e) {
     e.stopPropagation();
     if (isInCart) {
-      handleRemoveFromCart(card._id);
+      handleRemoveFromCart(card._id, price);
     } else {
-      handleAddToCart(card._id);
+      handleAddToCart(card._id, price);
     }
   }
 

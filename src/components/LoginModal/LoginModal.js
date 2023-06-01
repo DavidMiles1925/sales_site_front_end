@@ -27,7 +27,7 @@ function LoginModal({ isLoading }) {
       name='login'
       buttonText={isLoading ? "Saving" : "Log In"}
       handleSubmit={handleSubmit}
-      alternateButton={{ value: true, text: "or Sign Up", path: "building" }}
+      alternateButton={{ value: true, text: "or Sign Up", path: "signup" }}
     >
       <label className='modal__label'>Email*</label>
       <input

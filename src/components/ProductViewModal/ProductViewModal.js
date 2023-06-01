@@ -35,7 +35,7 @@ function ProductViewModal({
       <CardViewModal closeActiveModal={closeActiveModal}>
         <img className='modal__image' src={newImage} alt={card.name} />
         <div className='modal__info-wrapper'>
-          <h2 className='modal__title'>{name}</h2>
+          <h2 className='modal__title_type_product'>{name}</h2>
           <div className='modal__description-wrapper'>
             <p className='modal__price'>${price}</p>
             <p className='modal__description'>{description}</p>

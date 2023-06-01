@@ -56,6 +56,7 @@ const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [activeMenuSelection, setActiveMenuSelection] = useState({});
   const [alternateAvatar, setAlternateAvatar] = useState("");
+  const [, set] = useState(null);
 
   // ********** Active Modal **********
   const [activeModal, setActiveModal] = useState("T");
@@ -69,6 +70,13 @@ const App = () => {
   function getUserFirstLetter(name) {
     const firstletter = name.slice(0, 1);
     return firstletter;
+  }
+
+  function convertToFloat(string) {
+    console.log(string);
+    var floatValue = +string;
+    console.log(floatValue);
+    return floatValue;
   }
 
   // ********** User Selections **********
@@ -174,10 +182,14 @@ const App = () => {
     setIsAdmin(!isAdmin);
   }
 
-  function handleAddToCart(_id) {
+  function handleAddToCart(_id, price) {
     if (isLoggedIn) {
       const token = localStorage.getItem("token");
-      addToCart(_id, token)
+      const newTotal = String(
+        convertToFloat(currentUser.cartTotal) + convertToFloat(price)
+      );
+      console.log(`newTotal: ${newTotal}`);
+      addToCart(_id, newTotal, token)
         .then((user) => {
           setCurrentUser(user);
         })
@@ -189,9 +201,13 @@ const App = () => {
     }
   }
 
-  function handleRemoveFromCart(_id) {
+  function handleRemoveFromCart(_id, price) {
     const token = localStorage.getItem("token");
-    removeFromCart(_id, token)
+    const newTotal = String(
+      convertToFloat(currentUser.cartTotal) - convertToFloat(price)
+    );
+    console.log(`newTotal: ${newTotal}`);
+    removeFromCart(_id, newTotal, token)
       .then((user) => {
         setCurrentUser(user);
       })
@@ -325,9 +341,6 @@ const App = () => {
           </Route>
           <Route path='/building'>
             <StillBuilding />
-          </Route>
-          <Route path='/cart'>
-            <ShoppingCart />
           </Route>
           <Route path='/main'>
             <Main />

@@ -48,25 +48,25 @@ function updateUser(data) {
   });
 }
 
-function addToCart(_id, token) {
+function addToCart(_id, cartTotal, token) {
   return request(`${baseUrl}/users/${_id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "Application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ _id }),
+    body: JSON.stringify({ _id, cartTotal }),
   });
 }
 
-function removeFromCart(_id, token) {
+function removeFromCart(_id, cartTotal, token) {
   return request(`${baseUrl}/users/${_id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "Application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ _id }),
+    body: JSON.stringify({ _id, cartTotal }),
   });
 }
 

@@ -13,6 +13,7 @@ import {
   updateUser,
   addToCart,
   removeFromCart,
+  updateCartTotal,
 } from "../../utils/auth";
 
 // ********** Contexts **********
@@ -49,6 +50,7 @@ const App = () => {
 
   // ********** Server **********
   const [productList, setProductList] = useState([]);
+  const [chuckJoke, setChuckJoke] = useState("");
 
   // ********** User Context **********
   const [currentUser, setCurrentUser] = useState({});
@@ -56,7 +58,6 @@ const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [activeMenuSelection, setActiveMenuSelection] = useState({});
   const [alternateAvatar, setAlternateAvatar] = useState("");
-  const [, set] = useState(null);
 
   // ********** Active Modal **********
   const [activeModal, setActiveModal] = useState("T");
@@ -73,11 +74,25 @@ const App = () => {
   }
 
   function convertToFloat(string) {
-    console.log(string);
     var floatValue = +string;
-    console.log(floatValue);
     return floatValue;
   }
+
+  /*
+  function generateJoke() {
+    setIsLoading(true);
+    getJoke()
+      .then((res) => {
+        setChuckJoke(JSON.parse(JSON.stringify(res.joke)));
+      })
+      .catch((err) => {
+        console.log(err);
+        setChuckJoke("Could not reach server.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }*/
 
   // ********** User Selections **********
   function selectLogin() {
@@ -188,7 +203,6 @@ const App = () => {
       const newTotal = String(
         convertToFloat(currentUser.cartTotal) + convertToFloat(price)
       );
-      console.log(`newTotal: ${newTotal}`);
       addToCart(_id, newTotal, token)
         .then((user) => {
           setCurrentUser(user);
@@ -206,7 +220,7 @@ const App = () => {
     const newTotal = String(
       convertToFloat(currentUser.cartTotal) - convertToFloat(price)
     );
-    console.log(`newTotal: ${newTotal}`);
+
     removeFromCart(_id, newTotal, token)
       .then((user) => {
         setCurrentUser(user);
@@ -216,6 +230,26 @@ const App = () => {
       });
   }
 
+  function adjustCartTotalForPriceChanges(cartItems) {
+    let currentTotal = 0;
+
+    for (let item = 0; item < cartItems.length; item++) {
+      currentTotal = currentTotal + convertToFloat(cartItems[item].price);
+    }
+
+    currentTotal = String(currentTotal);
+
+    if (currentTotal !== currentUser.cartTotal) {
+      const token = localStorage.getItem("token");
+      updateCartTotal(String(currentTotal), token)
+        .then((user) => {
+          setCurrentUser(user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
   // ********** Modal Tools **********
 
   function closeActiveModal(evt) {
@@ -267,7 +301,7 @@ const App = () => {
 
   // ********** Listeners **********
   useEffect(() => {
-    setCurrentUser({ cart: [] });
+    setCurrentUser({ cart: [], cartTotal: "none" });
   }, []);
 
   useEffect(() => {
@@ -289,6 +323,12 @@ const App = () => {
         console.log("error occured");
       });
   }, []);
+
+  /*
+  useEffect(() => {
+    generateJoke();
+  }, []);
+  */
 
   useEffect(() => {
     checkAccess();
@@ -343,7 +383,11 @@ const App = () => {
             <StillBuilding />
           </Route>
           <Route path='/main'>
-            <Main />
+            <Main
+              //generateJoke={generateJoke}
+              chuckJoke={chuckJoke}
+              isLoading={isLoading}
+            />
           </Route>
           <Route path='/products'>
             <ProductsPage
@@ -370,9 +414,19 @@ const App = () => {
                     handleCardClick={handleCardClick}
                     handleAddToCart={handleAddToCart}
                     handleRemoveFromCart={handleRemoveFromCart}
+                    adjustCartTotalForPriceChanges={
+                      adjustCartTotalForPriceChanges
+                    }
                     history={history}
                   />
                 </ProtectedRoute>
+                <Route path='/'>
+                  <Main
+                    //generateJoke={generateJoke}
+                    chuckJoke={chuckJoke}
+                    isLoading={isLoading}
+                  />
+                </Route>
               </Switch>
             </div>
           </ProtectedRoute>

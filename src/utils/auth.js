@@ -70,4 +70,24 @@ function removeFromCart(_id, cartTotal, token) {
   });
 }
 
-export { signup, signin, checkToken, updateUser, addToCart, removeFromCart };
+function updateCartTotal(cartTotal, token) {
+  console.log(`Updating Cart Total: ${cartTotal}`);
+  return request(`${baseUrl}/users/cart`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "Application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ cartTotal }),
+  });
+}
+
+export {
+  signup,
+  signin,
+  checkToken,
+  updateUser,
+  addToCart,
+  removeFromCart,
+  updateCartTotal,
+};

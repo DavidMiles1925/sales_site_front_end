@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProductCard from "../ProductCard/ProductCard";
 import "./ShoppingCart.css";
@@ -8,6 +8,7 @@ function ShoppingCart({
   handleCardClick,
   handleAddToCart,
   handleRemoveFromCart,
+  adjustCartTotalForPriceChanges,
   history,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
@@ -17,6 +18,10 @@ function ShoppingCart({
   );
 
   const { cartTotal } = currentUser;
+
+  useEffect(() => {
+    adjustCartTotalForPriceChanges(cartItems);
+  }, []);
 
   return (
     <div className='cart'>

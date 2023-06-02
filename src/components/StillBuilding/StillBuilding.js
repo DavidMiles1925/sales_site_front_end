@@ -1,3 +1,7 @@
+import {
+  STILL_BUILDING_TEXT_LOWER,
+  STILL_BUILDING_TEXT_UPPER,
+} from "../../utils/constants";
 import "./StillBuilding.css";
 
 function StillBuilding() {
@@ -6,10 +10,10 @@ function StillBuilding() {
       <div className='building__parent'>
         <h2 className='building__title'>We're Still Building</h2>
         <p className='building__text building__text_type_upper'>
-          The feature you selected is not part of this demo.
+          {STILL_BUILDING_TEXT_UPPER}
         </p>
         <p className='building__text building__text_type_lower'>
-          It can easily be implemented on YOUR website!
+          {STILL_BUILDING_TEXT_LOWER}
         </p>
       </div>
     </div>

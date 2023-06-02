@@ -1,0 +1,52 @@
+.main__api-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px black;
+}
+
+.main__api-header {
+  margin: 20px;
+}
+
+.main__api-joke-container {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__api-generate-button {
+  cursor: pointer;
+  padding: 6px;
+  border: none;
+  border-radius: 2px;
+  background-color: black;
+  color: white;
+  max-width: 200px;
+  font-family: "Bruno-Ace", Arial, sans-serif;
+  font-size: 14px;
+  transition: 0.1s;
+}
+
+.main__api-generate-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.main__api-generate-button:active {
+  transform: scale(1);
+}
+
+.main__api-joke {
+}
+
+.main__api-footer {
+}
+
+.main__api-credit {
+  font-size: 8px;
+}

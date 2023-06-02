@@ -1,11 +1,16 @@
+import JokeGenerator from "../JokeGenerator/JokeGenerator";
 import "./Main.css";
-import logo from "../../images/logo.png";
-import handsUp from "../../images/ben-hands-up.jpg";
+import handsUpImage from "../../images/ben-hands-up.jpg";
 
-function Main() {
+function Main({ generateJoke, chuckJoke, isLoading }) {
   return (
     <main className='main'>
       <div className='main__parent'>
+        <JokeGenerator
+          // generateJoke={generateJoke}
+          chuckJoke={chuckJoke}
+          isLoading={isLoading}
+        />
         <h2 className='main__new-video-header'>Our Newest Video</h2>
         <iframe
           className='main__video1'
@@ -13,12 +18,12 @@ function Main() {
           title='YouTube video player'
           allow=' fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
         ></iframe>
-        <h2 className='main__new-video-header'>What's New</h2>
+        <h2 className='main__new-video-header'>What's New?</h2>
         <p className='main__paragraph'>
-          We are loving the weather, and out at the Heritage Hounddog's
+          We are loving the weather, and out at the Heritage Hound Dog's
           fundraiser!
         </p>
-        <img className='main__body-picture' src={handsUp} alt='Main' />
+        <img className='main__body-picture' src={handsUpImage} alt='Main' />
       </div>
     </main>
   );

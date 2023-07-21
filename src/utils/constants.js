@@ -33,7 +33,7 @@ const userDropdown = [
     text: "Customer Service",
     path: "/building",
   },
-  { text: "Log Out", path: "logout" },
+  { text: "Log Out", path: "" },
 ];
 
 const userSidebar = [

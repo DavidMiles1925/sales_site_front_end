@@ -4,7 +4,7 @@ import "./SideBarMenu.css";
 
 const SideBarMenu = ({ dropdownOptions }) => {
   const { setCurrentCategory } = useContext(FilterContext);
-  const { openOnWideScreen, titleText, dropdownItems } = dropdownOptions;
+  const { titleText, dropdownItems } = dropdownOptions;
 
   const [isOpen, setIsOpen] = useState(null);
   const toggleDropdown = () => setIsOpen(!isOpen);

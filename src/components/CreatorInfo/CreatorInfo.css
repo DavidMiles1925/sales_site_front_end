@@ -1,0 +1,7 @@
+.creator {
+  display: flex;
+}
+
+.creator__text {
+  padding: 5px;
+}

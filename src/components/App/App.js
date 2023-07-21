@@ -4,8 +4,12 @@ import { useEffect, useState } from "react";
 import { errorMessageHandler } from "../../contexts/ValidationContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
+// ********** Styles **********
+import "../../fonts/fonts.css";
+import "./App.css";
+
 // ********** API **********
-import { database } from "../../utils/mockServer";
+import { getProducts } from "../../utils/api";
 import {
   signup,
   signin,
@@ -20,29 +24,28 @@ import {
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { ValidationContext } from "../../contexts/ValidationContext";
 
-// ********** Page Components **********s
+// ********** Main Site Components **********
 import Header from "../Header/Header";
+import ProductsPage from "../ProductsPage/ProductsPage";
 import Main from "../Main/Main";
 import AboutUs from "../AboutUs/AboutUs";
-import ProductsPage from "../ProductsPage/ProductsPage";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import Footer from "../Footer/Footer";
-import StillBuilding from "../StillBuilding/StillBuilding";
+
+// ********** User Profile Components **********
+import UserProfilePage from "../UserProfilePage/UserProfilePage";
+import { userDropdown } from "../../utils/constants";
+import UserInformationPage from "../UserInformationPage/UserInformationPage";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
+
+// ********** Developer Components **********
+import StillBuildingPage from "../StillBuilding/StillBuilding";
 import DeveloperPanel from "../DeveloperPanel/DeveloperPanel";
 
 // ********** Modals **********
-import { userDropdown } from "../../utils/constants";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import UserUpdateProfileModal from "../UserUpdateProfileModal/UserUpdateProfileModal";
 import ProductViewModal from "../ProductViewModal/ProductViewModal";
-
-// ********** Styles **********
-import "../../fonts/fonts.css";
-import "./App.css";
-import UserProfilePage from "../UserProfilePage/UserProfilePage";
-import { getProducts } from "../../utils/api";
-import UserInformationPage from "../UserInformationPage/UserInformationPage";
 
 const App = () => {
   // ********** Developer Tools **********
@@ -250,6 +253,7 @@ const App = () => {
         });
     }
   }
+
   // ********** Modal Tools **********
 
   function closeActiveModal(evt) {
@@ -300,19 +304,18 @@ const App = () => {
   }
 
   // ********** Listeners **********
-  useEffect(() => {
-    setCurrentUser({ cart: [], cartTotal: "none" });
-  }, []);
 
   useEffect(() => {
     setActiveMenuSelection(userDropdown[0]);
   }, []);
 
-  /*
   useEffect(() => {
-    setProductList(database.products);
+    checkAccess();
   }, []);
-*/
+
+  useEffect(() => {
+    setCurrentUser({ cart: [], cartTotal: "none" });
+  }, []);
 
   useEffect(() => {
     getProducts()
@@ -329,10 +332,6 @@ const App = () => {
     generateJoke();
   }, []);
   */
-
-  useEffect(() => {
-    checkAccess();
-  }, []);
 
   useEffect(() => {
     if (!activeModal) return;
@@ -380,7 +379,7 @@ const App = () => {
             <AboutUs />
           </Route>
           <Route path='/building'>
-            <StillBuilding />
+            <StillBuildingPage />
           </Route>
           <Route path='/main'>
             <Main
@@ -403,7 +402,7 @@ const App = () => {
               <UserProfilePage history={history} />
               <Switch>
                 <ProtectedRoute exact path='/userprofile/building'>
-                  <StillBuilding />
+                  <StillBuildingPage />
                 </ProtectedRoute>
                 <ProtectedRoute exact path='/userprofile/userinfo'>
                   <UserInformationPage setActiveModal={setActiveModal} />
